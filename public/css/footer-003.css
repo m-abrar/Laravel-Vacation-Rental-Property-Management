@@ -1,0 +1,84 @@
+#myFooterThree {
+	background-color: #373a48;
+	color:white;
+}
+
+#myFooterThree .footer-copyright{
+	background-color: #383737;
+	padding-top:3px;
+	padding-bottom:3px;
+	text-align: center;
+}
+
+#myFooterThree .footer-copyright p{
+	margin:10px;
+	color: #ccc;
+}
+
+#myFooterThree ul{
+	list-style-type: none;
+    padding-left: 0;
+    line-height: 1.7;
+
+}
+
+#myFooterThree h5{
+	font-size: 18px;
+    color: white;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+#myFooterThree a{
+	color:#d2d1d1;
+	text-decoration: none;
+}
+
+#myFooterThree a:hover, #myFooterThree a:focus{
+	text-decoration: none;
+	color:white;
+}
+
+#myFooterThree .myCols{
+	text-align: center;
+}
+
+#myFooterThree .social-networks{
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 38px;
+}
+
+#myFooterThree .social-networks a{
+    font-size: 32px;
+    margin-right: 5px;
+    margin-left: 5px;
+    color: #f9f9f9;
+    padding: 10px;
+    transition: 0.2s;
+}
+
+#myFooterThree .social-networks a:hover{
+	text-decoration: none;
+
+}
+
+#myFooterThree .facebook:hover{
+	color:#0077e2;
+}
+
+#myFooterThree .google:hover{
+	color:#ef1a1a;
+}
+
+#myFooterThree .twitter:hover{
+	color: #00aced;
+}
+
+@media screen and (max-width: 767px){
+	#myFooterThree {
+		text-align: center;
+	}
+}
+
+

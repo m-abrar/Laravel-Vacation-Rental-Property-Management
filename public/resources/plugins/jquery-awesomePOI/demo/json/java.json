@@ -1,0 +1,251 @@
+{
+  "types": {
+    "type": [
+      {
+        "name": "landscapes",
+        "icon": "pin-landscape.png",
+        "items": {
+          "item": [
+            {
+              "lat": "34.142498",
+              "lng": "77.555580",
+              "name": "Leh",
+              "formatted_address": "Leh, India",
+              "formatted_phone_number": "",
+              "website": "",
+              "photos": {
+                "url": [
+                  "img/leh1.jpg",
+                  "img/leh2.jpg"
+                ]
+              },
+              "reviews": [
+                {
+                  "author_name": "Jan",
+                  "rating": "3.5",
+                  "date": "30.02.2017",
+                  "text": "Very good"
+                },
+                {
+                  
+                }
+              ]
+            },
+            {
+              "lat": "9.968735",
+              "lng": "76.248078",
+              "name": "Cochin",
+              "formatted_address": "Cochin, India",
+              "formatted_phone_number": "",
+              "photos": {
+                "url": [
+                  "img/kochi1.jpg",
+                  "img/kochi2.jpg"
+                ]
+              },
+              "reviews": [
+                {                 
+                },
+                {
+                  
+                }
+              ]
+            },
+			            {
+              "lat": "11.799227",
+              "lng": "76.004448",
+              "name": "Wayanad",
+              "formatted_address": "Kalpetta, India",
+              "formatted_phone_number": "",
+              "photos": {
+                "url": [
+                  "img/wayanad.jpg"
+                ]
+              },
+              "reviews": [
+                {                 
+                },
+                {
+                  
+                }
+              ]
+            },
+			{
+              "lat": "25.428801",
+              "lng": "81.884623",
+              "name": "Allahabad",
+              "formatted_address": "Allahabad, India",
+              "formatted_phone_number": "",
+              "photos": {
+                "url": [
+					"img/allahabad1.jpg",
+					"img/allahabad2.jpg"
+                  
+                ]
+              },
+              "reviews": [
+                {                 
+                },
+                {
+                  
+                }
+              ]
+            },
+			{
+              "lat": "8.737516",
+              "lng": "76.701114",
+              "name": "Varkala Beach",
+              "formatted_address": "Varkala, India",
+              "formatted_phone_number": "",
+              "photos": {
+                "url": [
+					"img/varkala.jpg"
+                ]
+              },
+              "reviews": [
+                {                 
+                },
+                {
+                  
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "architecture",
+        "icon": "pin-architecture.png",
+        "items": {
+          "item": [
+            {
+              "lat": "27.175018",
+              "lng": "78.042154",
+              "name": "Taj Mahal",
+              "formatted_address": "Agra, India",
+              "photos": {
+                "url": [
+                  "img/taj1.jpg",
+                  "img/taj2.jpg"
+                ]
+              },
+              "reviews": {
+                
+              }
+            },
+			{
+              "lat": "26.489749",
+              "lng": "74.551086",
+              "name": "Pushkar",
+              "formatted_address": "Pushkar, India",
+              "photos": {
+                "url": [
+                  "img/pushkar.jpg"
+                ]
+              },
+              "reviews": {
+                
+              }
+            }
+          ]
+        }
+      },
+	  {
+        "name": "culture",
+        "icon": "pin-culture.png",
+        "items": {
+          "item": [
+            {
+              "lat": "25.303781",
+              "lng": "83.007803",
+              "name": "Sadhu",
+              "formatted_address": "Varanasi, India",
+              "photos": {
+                "url": [
+                  "img/sadhu.jpg"
+                ]
+              },
+              "reviews": {
+                
+              }
+            },
+            {
+              "lat": "12.768676",
+              "lng": "75.207064",
+              "name": "Kambala",
+              "formatted_address": "Puttur, India",
+              "photos": {
+                "url": [
+                  "img/kambala.jpg"
+                ]
+              },
+              "reviews": {
+                
+              }
+            },
+            {
+              "lat": "26.489504",
+              "lng": "74.547204",
+              "name": "Well of death",
+              "formatted_address": "Pushkar, India",
+              "photos": {
+                "url": [
+                  "img/well1.jpg",
+                  "img/well2.jpg"
+                ]
+              },
+              "reviews": {
+                
+              }
+            },
+            {
+              "lat": "11.874477",
+              "lng": "75.370366",
+              "name": "Theyyam",
+              "formatted_address": "Kannur, India",
+              "photos": {
+                "url": [
+                  "img/theyyam1.jpg",
+                  "img/theyyam2.jpg"
+                  
+                ]
+              },
+              "reviews": {
+                
+              }
+            },
+            {
+              "lat": "25.435787",
+              "lng": "77.665066",
+              "name": "Shivpuri",
+              "formatted_address": "Shivpuri, India",
+              "photos": {
+                "url": [
+                  "img/shivpuri.jpg"
+                ]
+              },
+              "reviews": {
+                
+              }
+            },
+            {
+              "lat": "10.014449",
+              "lng": "76.300135",
+              "name": "Kathakali",
+              "formatted_address": "Ernakulam, India",
+              "photos": {
+                "url": [
+                  "img/kathakali1.jpg",
+                  "img/kathakali2.jpg"
+                ]
+              },
+              "reviews": {
+                
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

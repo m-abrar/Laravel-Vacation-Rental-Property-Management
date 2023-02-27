@@ -1,0 +1,64 @@
+/* Calendar */
+
+.date-past {
+    background: #ccc;
+    cursor: not-allowed;
+}
+.date-available {
+    background: #fff;
+    cursor: pointer;
+}
+.date-selected {
+    background: #0c0;
+    cursor: pointer;
+}
+.date-selected-start {
+    background: linear-gradient(105deg, #fff 0%, #fff 50%, #0c0 50%, #0c0 100%);
+    cursor: pointer;
+    
+}
+.date-selected-end {
+    background: linear-gradient(285deg, #fff 0%, #fff 50%, #0c0 50%, #0c0 100%);
+    cursor: pointer;
+    
+}
+.date-editing {
+    background: #A4A4FF;
+    cursor: pointer;
+}
+.date-blocked {
+    background: #666;
+}
+.date-pending {
+    background: #ff0;
+}
+.date-booked {
+    background: #f00;
+    cursor: not-allowed;
+}
+.date-booked-start {
+    background: linear-gradient(105deg, #fff 0%, #fff 50%, #f00 50%, #f00 100%);
+    cursor: not-allowed;
+}
+.date-booked-end {
+    background: linear-gradient(285deg, #fff 0%, #fff 50%, #f00 50%, #f00 100%);
+    cursor: not-allowed;
+}
+
+.legends-table td {
+    width: 20px;
+    font-size: 9px;
+    padding: 3px;
+}
+.legend-selected {
+    background: #0c0;
+}
+.legend-blocked {
+    background: #666;
+}
+.legend-pending {
+    background: #ff0;
+}
+.legend-booked {
+    background: #f00;
+}

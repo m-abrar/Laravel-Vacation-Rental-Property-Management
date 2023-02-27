@@ -1,0 +1,111 @@
+.colors-top-bar { /*--900*/
+background: #3E2723;
+border-top: 4px solid #6D4C41;/*600*/
+}
+.main-menu-colors {
+background-color: #795548;/*--500*/
+}
+.main-menu-transparent {
+background-color: transparent;
+}
+.main-menu-colors > ul > li > a {
+
+background-color: #795548;}
+.main-menu-colors > ul > li:hover > a,
+.main-menu-colors > ul > li > a:hover,
+.main-menu-colors > ul > li.active > a {
+background: #3E2723;
+}
+#search-form-transparent, .main-menu-transparent ul ul li a, .main-menu-colors ul ul li a {
+background: rgba(121,85,72, 0.9);
+}
+.main-menu-colors .submenu-button:before {
+border-top-color: #3E2723; 
+}
+.search-box {
+background: #795548; 
+}
+#search-form-horizontal {
+background: #795548; 
+}
+.search-index {
+background-color: #3E2723 !important;
+border-radius: 0px;
+}
+.tab-button {
+   background: rgba(121,85,72, 0.75);
+}
+.nav-tabs > li > a {
+    color: #fff;
+}
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+    color: #fff;
+    background-color: #3E2723;
+}
+.nav-tabs>li>a:focus,
+.nav-tabs>li>a:hover {
+    color: #333;
+}
+
+.middle-down-arrow {
+background: url(../img/middle-down-arrow-05.png) no-repeat;
+}
+.breadcrumb a{
+color: #3E2723;
+}
+.input-group-addon {
+background-color: #e23d0b !important;
+}
+.pace .pace-progress {
+background: #795548;
+}
+.caption-slide-up figcaption {
+background: #795548;
+}
+
+.property-type-article-description {
+background-color: #eee ;
+}
+.property-type-article-price {
+background-color: #795548 ;
+color:#fff;
+}
+.property-for-sale-info{
+background-color: #795548;
+color:#fff;
+}
+.property-for-sale-info h3{
+background-color:#3E2723;
+}
+.info-cell span,
+.info-cell-large span,
+.info-cell .btn,
+.info-cell-large .btn {
+    background: #3E2723;
+    color:#fff;
+}
+
+.btn-oval{
+	background: #6D4C41;/*600*/
+}
+.btn-oval:hover{
+	background: #5D4037;/*700*/
+}
+}
+footer{
+	background: #795548;
+}
+.footer_links ul li a{
+	color: #5D4037;
+}
+.footer_links ul li a:hover{
+	color: white;
+	}
+.arrow-down {
+  border-top: 20px solid #795548;
+}
+/* filter options */
+#filter-options a { background: #795548; border: 1px solid #3E2723; color:#fff;}
+#filter-options a.active {background: #3E2723;}

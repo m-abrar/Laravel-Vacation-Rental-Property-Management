@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'avantgarde_mediummedium';
+    src: url('../fonts/avantgarde-medium-webfont.eot');
+    src: url('../fonts/avantgarde-medium-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/avantgarde-medium-webfont.woff') format('woff'), url('../fonts/avantgarde-medium-webfont.ttf') format('truetype'), url('../fonts/avantgarde-medium-webfont.svg#avantgarde_mediummedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'caviar_dreamsbold';
+    src: url('../fonts/Caviar_Dreams_Bold-webfont.eot');
+    src: url('../fonts/Caviar_Dreams_Bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Caviar_Dreams_Bold-webfont.woff') format('woff'), url('../fonts/Caviar_Dreams_Bold-webfont.ttf') format('truetype'), url('../fonts/Caviar_Dreams_Bold-webfont.svg#caviar_dreamsbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('../fonts/OpenSans-Regular-webfont.eot');
+    src: url('../fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/OpenSans-Regular-webfont.woff') format('woff'), url('../fonts/OpenSans-Regular-webfont.ttf') format('truetype'), url('../fonts/OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

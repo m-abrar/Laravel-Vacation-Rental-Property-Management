@@ -1,0 +1,99 @@
+#myFooterFour {
+    background-color: #3a3f46;
+    color: white;
+}
+
+#myFooterFour .row {
+    margin-bottom: 60px;
+}
+
+#myFooterFour .info{
+    text-align: justify; 
+    color: #afb0b1;
+}
+
+#myFooterFour ul {
+    list-style-type: none;
+    padding-left: 0;
+    line-height: 1.7;
+}
+
+#myFooterFour h5 {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+#myFooterFour .logo{
+    margin-top: 10px;
+}
+
+#myFooterFour .second-bar .logo a{
+    color:white;
+    font-size: 28px;
+    float: left;
+    font-weight: bold;
+    line-height: 68px;
+    margin: 0;
+    padding: 0;
+}
+
+#myFooterFour a {
+    color: #d2d1d1;
+    text-decoration: none;
+}
+
+#myFooterFour a:hover,
+#myFooterFour a:focus {
+    text-decoration: none;
+    color: white;
+}
+
+#myFooterFour .second-bar {
+    text-align: center;
+    background-color: #33373e;
+    text-align: center;
+}
+
+#myFooterFour .second-bar a {
+    font-size: 22px;
+    color: #9fa3a9;
+    padding: 10px;
+    transition: 0.2s;
+    line-height: 68px;
+}
+
+#myFooterFour .second-bar a:hover {
+    text-decoration: none;
+}
+
+#myFooterFour .social-icons {
+    float:right;
+}
+
+
+#myFooterFour .facebook:hover {
+    color: #0077e2;
+}
+
+#myFooterFour .google:hover {
+    color: #ef1a1a;
+}
+
+#myFooterFour .twitter:hover {
+    color: #00aced;
+}
+
+@media screen and (max-width: 767px) {
+    #myFooterFour {
+        text-align: center;
+    }
+
+    #myFooterFour .info{
+        text-align: center;
+    }
+}
+
+
+

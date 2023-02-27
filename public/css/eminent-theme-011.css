@@ -1,0 +1,111 @@
+.colors-top-bar { /*--900*/
+background: #827717;
+border-top: 4px solid #C0CA33;/*600*/
+}
+.main-menu-colors {
+background-color: #CDDC39;/*--500*/
+}
+.main-menu-transparent {
+background-color: transparent;
+}
+.main-menu-colors > ul > li > a {
+
+background-color: #CDDC39;}
+.main-menu-colors > ul > li:hover > a,
+.main-menu-colors > ul > li > a:hover,
+.main-menu-colors > ul > li.active > a {
+background: #827717;
+}
+#search-form-transparent, .main-menu-transparent ul ul li a, .main-menu-colors ul ul li a {
+background: rgba(205,220,57, 0.9);
+}
+.main-menu-colors .submenu-button:before {
+border-top-color: #827717; 
+}
+.search-box {
+background: #CDDC39; 
+}
+#search-form-horizontal {
+background: #CDDC39; 
+}
+.search-index {
+background-color: #827717 !important;
+border-radius: 0px;
+}
+.tab-button {
+   background: rgba(205,220,57, 0.75);
+}
+.nav-tabs > li > a {
+    color: #fff;
+}
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+    color: #fff;
+    background-color: #827717;
+}
+.nav-tabs>li>a:focus,
+.nav-tabs>li>a:hover {
+    color: #333;
+}
+
+.middle-down-arrow {
+background: url(../img/middle-down-arrow-05.png) no-repeat;
+}
+.breadcrumb a{
+color: #827717;
+}
+.input-group-addon {
+background-color: #e23d0b !important;
+}
+.pace .pace-progress {
+background: #CDDC39;
+}
+.caption-slide-up figcaption {
+background: #CDDC39;
+}
+
+.property-type-article-description {
+background-color: #eee ;
+}
+.property-type-article-price {
+background-color: #CDDC39 ;
+color:#fff;
+}
+.property-for-sale-info{
+background-color: #CDDC39;
+color:#fff;
+}
+.property-for-sale-info h3{
+background-color:#827717;
+}
+.info-cell span,
+.info-cell-large span,
+.info-cell .btn,
+.info-cell-large .btn {
+    background: #827717;
+    color:#fff;
+}
+
+.btn-oval{
+	background: #C0CA33;/*600*/
+}
+.btn-oval:hover{
+	background: #AFB42B;/*700*/
+}
+}
+footer{
+	background: #CDDC39;
+}
+.footer_links ul li a{
+	color: #AFB42B;
+}
+.footer_links ul li a:hover{
+	color: white;
+	}
+.arrow-down {
+  border-top: 20px solid #CDDC39;
+}
+/* filter options */
+#filter-options a { background: #CDDC39; border: 1px solid #827717; color:#fff;}
+#filter-options a.active {background: #827717;}

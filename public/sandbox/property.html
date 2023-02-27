@@ -1,0 +1,937 @@
+
+<!-- This view file shows the detailed information of a property the user landed in -->
+
+<!-- Goes to html>head>title -->
+<!-- Yields body of the page inside the template -->
+<!-- 
+  | Template Main File 
+  | Contains commonly required scripts and files 
+  | - Bootstrap
+  | - jQuery
+  | - Datepicker
+  | - Preloader
+  | - Navigation: Drop Down Menu
+  | - LightGallery
+  | - Application CSS (eminent.css)
+  | - Common CSS code (style.css)
+  | - Header: Reserve Online - Commonly included everywhere on the site
+  | - Footer - Commonly included everywhere on the site
+  | Includes partial files and pieces of results
+  | - Browser Title as per the page opened
+  | - Main Contents as per the page opened
+  | - Javascript as per the page opened
+  -->
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Eastland Bungalow - Eminent Property Management
+</title>
+    <!-- Bootstrap -->
+    <link href="http://noble-soft.com/eminent/demo/public/resources/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src='//code.jquery.com/jquery-2.1.0.js'></script>
+    <!-- Fonts -->
+    <link href="http://noble-soft.com/eminent/demo/public/resources/font-awesome-4.3.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <!-- /. Fonts -->
+    <!-- Page Preloading -->
+    <script src="http://noble-soft.com/eminent/demo/public/resources/plugins/pace/pace.js"></script>
+    <link href="http://noble-soft.com/eminent/demo/public/resources/plugins/pace/themes/green/pace-theme-flat-top.css" rel="stylesheet" />
+    <!-- /.Page Preloading -->
+    <!-- Date Picker -->
+    <script src="http://noble-soft.com/eminent/demo/public/resources/plugins/datepicker-eyecon/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <link href="http://noble-soft.com/eminent/demo/public/resources/plugins/datepicker-eyecon/css/datepicker.css" rel="stylesheet" type="text/css">
+    <!-- /. Date Picker -->
+    <!-- Menu -->
+    <link href="http://noble-soft.com/eminent/demo/public/css/main-menu-styles.css" rel="stylesheet" type="text/css">
+    <script src="http://noble-soft.com/eminent/demo/public/js/main-menu-script.js" type="text/javascript"></script>
+    <!-- /.Menu -->
+
+
+    
+<link href="http://noble-soft.com/eminent/demo/public/resources/plugins/jquery-awesomePOI/src/awesomePOI.css" rel="stylesheet" type="text/css">
+<link href="http://noble-soft.com/eminent/demo/public/resources/plugins/jquery-awesomePOI/src/skins/skin1.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    
+
+    <!-- img-preload -->
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unveil-master/jquery.unveil.js"></script>
+    <script>
+    $(function() {
+    $(".img-preload").unveil(300);
+    });
+    </script>
+    <!-- /.img-preload -->
+
+    <!-- Unit Gallery -->
+    <!-- 
+    jQuery already included @ jquery-2.1.0.js
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/jquery-11.0.min.js"></script> 
+    -->
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-common-libraries.js"></script> 
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-functions.js"></script>
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-thumbsgeneral.js"></script>
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-thumbsstrip.js"></script>
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-touchthumbs.js"></script>
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-panelsbase.js"></script>
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-strippanel.js"></script>
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-gridpanel.js"></script>
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-thumbsgrid.js"></script>
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-tiles.js"></script>
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-tiledesign.js"></script>
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-avia.js"></script>
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-slider.js"></script>
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-sliderassets.js"></script>
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-touchslider.js"></script>
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-zoomslider.js"></script> 
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-video.js"></script>
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-gallery.js"></script>
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-lightbox.js"></script>
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-carousel.js"></script>
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/js/ug-api.js"></script>
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/themes/compact/ug-theme-compact.js"></script>
+
+    <link rel="stylesheet" href="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/css/unite-gallery.css" type="text/css" />
+    <script type="text/javascript" src="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/themes/default/ug-theme-default.js"></script>
+    <link rel="stylesheet" href="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/source/unitegallery/themes/default/ug-theme-default.css" type="text/css" />
+
+    <!-- /. Unit Gallery -->
+    <link href="http://noble-soft.com/eminent/demo/public/css/style.css" rel="stylesheet" type="text/css">
+    <link href="http://noble-soft.com/eminent/demo/public/css/eminent-main.css" rel="stylesheet" type="text/css">
+
+    <link id="theme_options_color" rel="stylesheet" type="text/css" href="http://noble-soft.com/eminent/demo/public/css/eminent-theme-001.css" media="screen" />
+
+    <script type="text/javascript">window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set._.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");$.src="//v2.zopim.com/?3a2NPsJX1Pg2zvBm5tl70E6aMfW1V34t";z.t=+new Date;$.type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");</script>
+
+  </head>
+  <body>
+
+
+
+<!-- Site Header: Social Media links and Reserve Online -->
+<section id="theme_options_header">
+    <div id="top" class="colors-top-bar">
+      <div class="container">
+        <div class="pull-left">
+          <ul class="socialmarks socialmarks2 ">
+                        <li><a href="https://facebook.com/your_company_name" target="_blank" class="facebook"></a></li>
+                                    <li><a href="https://twitter.com/your_company_name" target="_blank" class="twitter"></a></li>
+                                    <li><a href="https://linkedin.com/your_company_name" target="_blank" class="linkedin"></a></li>
+                                    <li><a href="https://plus.google.com/your_company_name" target="_blank" class="googleplus"></a></li>
+                      </ul>
+        </div>
+        
+
+        <div class="pull-right" style="margin: 3px">
+                    <a href="#" class="btn btn-oval">Manage Propeperties </a>
+                  </div>
+
+        <div class="pull-right" style="margin: 3px">
+          <!-- Popup: Reserve Online -->
+          <!-- Button trigger modal: Reserve Online -->
+<button type="button" class="btn btn-oval" data-toggle="modal" data-target="#reserve-online"> Reserve Online </button>
+<!-- Modal: Reserve Online -->
+<div class="modal fade" id="reserve-online" tabindex="-1" role="dialog" aria-labelledby="reserve-onlineLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form class="form-horizontal" role="form" action="http://noble-soft.com/eminent/demo/public/rental/search/redirect" method="get">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="reserve-onlineLabel">Search &amp; Reserve Online</h4>
+        </div>
+        <div class="modal-body">
+        
+          <div class="reserve-online-box">
+            <div class="form-group">
+              <label for="checkin">Arrival</label>
+              <div class="input-group">
+                <input class="form-control" type="text" id="checkin" name="arrival" value="" placeholder="mm/dd/yyyy" required />
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="checkout">Departure</label>
+              <div class="input-group">
+                <input class="form-control" type="text" id="checkout" name="departure" value="" placeholder="mm/dd/yyyy" required />
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="sleeps">Sleeps</label>
+              <select name="sleeps" class="form-control">
+              <option value="1"  selected="selected"  > - select - </option>
+              <option value="1" >1 + </option>
+              <option value="2" >2 + </option>
+              <option value="3" >3 + </option>
+              <option value="4" >4 + </option>
+              <option value="5" >5 + </option>
+              <option value="6" >6 + </option>
+              <option value="7" >7 + </option>
+              <option value="8" >8 + </option>
+              <option value="9" >9 + </option>
+              <option value="10" >10 + </option>
+              </select>
+            </div>
+            <div class="form-group">
+            <label for="category">eminent.category</label>
+
+              <select name="category" class="form-control">
+                <option value="all"
+                                > All </option>
+                                <option value="homes"
+                                >Homes</option>
+                                <option value="apartments"
+                                >Apartments</option>
+                                <option value="condominiums"
+                                >Condominiums</option>
+                                <option value="cottages"
+                                >Cottages</option>
+                                <option value="bungalows"
+                                >Bungalows</option>
+                                <option value="resorts"
+                                >Resorts</option>
+                              </select>
+          </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-oval"><span class="glyphicon glyphicon-search"></span> Search</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>        </div>
+        <div class="pull-right" style="color:#fff; margin: 5px 5px 0 5px ;">
+          <p>Help line: +1 (111) 111-1111</p>
+        </div>
+        
+      </div>
+    </div>    <!-- Site Header: Logo and heading text -->
+    <div class="header-bg">
+      <div class="container header-bg">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-6 logo">
+            <h1>
+              <a href="http://noble-soft.com/eminent/demo/public"><img src="http://noble-soft.com/eminent/demo/public/img/site-logo-default-dark.png" alt="Eminent Property Management" class="img-responsive" /></a>
+            </h1>
+          </div>
+          <div class="col-lg-8 col-md-8 col-sm-6 header_heading">
+            <div class="advertisement">
+            <h1>YOUR ADVERTISEMENT HERE</h1>
+<p>Lorem ipsum dolor smit lorem ipsum dolor smit</p>
+<p><a href="http://noble-soft.com/eminent/documentation/">Theme Installation Help</a>&nbsp;| <a href="https://codecanyon.net/item/eminent-property-management-system/13202012?ref=noblesoft">Buy @&nbsp;$40</a></p>      
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of site header -->
+    
+    <!-- Body: Page Contents -->
+    
+<!-- Navigation: Top-bar -->
+    <div>
+    <!-- Menu coming from database -->
+<nav id='main-menu' class="navbar text-uppercase main-menu-colors navbar-fixed-top" role="navigation">
+  <ul><li id="top_nav_1" class=" has-sub " ><a href="#">Home</a><ul><li id="top_nav_33" class="" ><a href="http://noble-soft.com/eminent/demo/public/home?theme_options_hero=2&theme_options_home=3">Home 1</a></li><li id="top_nav_29" class="" ><a href="http://noble-soft.com/eminent/demo/public/home?theme_options_header=4&theme_options_hero=3">Home 2</a></li><li id="top_nav_28" class="" ><a href="http://noble-soft.com/eminent/demo/public/home?theme_options_hero=5&theme_options_home=2">Home 3</a></li><li id="top_nav_30" class="" ><a href="http://noble-soft.com/eminent/demo/public/home?theme_options_hero=6&theme_options_header=2">Home 4</a></li><li id="top_nav_45" class="" ><a href="http://noble-soft.com/eminent/demo/public/home?theme_options_header=5&theme_options_hero=1">Home 5</a></li></ul></li><li id="top_nav_5" class=" has-sub " ><a href="http://noble-soft.com/eminent/demo/public/types">Properties</a><ul><li id="top_nav_34" class=" has-sub " ><a href="#">Single Property</a><ul><li id="top_nav_37" class="" ><a href="http://noble-soft.com/eminent/demo/public/show/kanwal-home">Book</a></li><li id="top_nav_35" class="" ><a href="http://noble-soft.com/eminent/demo/public/show/lake-house">Sale</a></li><li id="top_nav_38" class="" ><a href="http://noble-soft.com/eminent/demo/public/show/billy-house">Default</a></li></ul></li><li id="top_nav_40" class="" ><a href="http://noble-soft.com/eminent/demo/public/rental/search/all/2017-11-11/2017-11-14/1">Search by Date</a></li><li id="top_nav_41" class="" ><a href="http://noble-soft.com/eminent/demo/public/rental/search/all/2017-11-11/2017-11-14/1">Rental Properties</a></li><li id="top_nav_39" class="" ><a href="http://noble-soft.com/eminent/demo/public/sale/search/all/all/1">Sale Properties</a></li><li id="top_nav_8" class="" ><a href="http://noble-soft.com/eminent/demo/public/type/homes">List by Category</a></li><li id="top_nav_36" class="" ><a href="http://noble-soft.com/eminent/demo/public/types">All Categories</a></li></ul></li><li id="top_nav_4" class=" has-sub " ><a href="#">Blogs</a><ul><li id="top_nav_42" class="" ><a href="http://noble-soft.com/eminent/demo/public/posts">View All</a></li><li id="top_nav_11" class="" ><a href="http://noble-soft.com/eminent/demo/public/services">List by Category</a></li><li id="top_nav_43" class="" ><a href="http://noble-soft.com/eminent/demo/public/blog/enjoy-flying">Blog Single</a></li></ul></li><li id="top_nav_24" class=" has-sub " ><a href="#">Other Pages</a><ul><li id="top_nav_44" class=" has-sub " ><a href="#">Plugins Demo</a><ul><li id="top_nav_32" class="" ><a href="http://noble-soft.com/eminent/demo/public/resources/plugins/lightGallery-master/demo/index.html">Light Box</a></li><li id="top_nav_31" class="" ><a href="http://noble-soft.com/eminent/demo/public/resources/plugins/unitegallery-master/package/">Gallery</a></li></ul></li><li id="top_nav_23" class=" has-sub " ><a href="#">Help</a><ul><li id="top_nav_10" class="" ><a href="#">FAQs</a></li><li id="top_nav_27" class="" ><a href="#">Sales Questions</a></li><li id="top_nav_26" class="" ><a href="#">Software Guide</a></li><li id="top_nav_25" class="" ><a href="#">Privacy Policy</a></li></ul></li></ul></li><li id="top_nav_6" class="" ><a href="http://noble-soft.com/eminent/demo/public/contact">Contact</a></li></ul>
+</nav>
+    </div>
+</section>
+
+    <!-- Load/Execute the code for contents from the view page. -->
+    <!-- Page Content -->
+<style type="text/css">
+   .page-header-bg:before {
+   background-image: url('http://noble-soft.com/eminent/demo/public/pictures/property-20150921051525.png');
+   }
+</style>
+<div class="page-header-bg">
+   <div class="container">
+      <h1 class="pull-left">
+         Eastland Bungalow
+      </h1>
+      <ol class="breadcrumb pull-right">
+         <li><a href="http://noble-soft.com/eminent/demo/public">Home</a></li>
+         <li><a href="http://noble-soft.com/eminent/demo/public/types">Properties</a></li>
+         <li><a href="http://noble-soft.com/eminent/demo/public/type/bungalows">
+            Bungalows
+            </a>
+         </li>
+         <li class="active">
+            Eastland Bungalow
+         </li>
+      </ol>
+   </div>
+</div>
+<div class="container page-body box-shadow">
+      <!-- /.row -->
+   <!-- Property Detail -->
+   <div class="row">
+      <!-- Left/Middle Column :: Property Images/Description/Amenities/Features/Rates/Map -->
+      <div class="col-md-7 property-description">
+         <div class="row">
+<div id="unite-gallery" style="display:none;">
+                <img alt="Eastland Bungalow"
+       src="http://noble-soft.com/eminent/demo/public/pictures/property-20150921051525.png"
+       data-image="http://noble-soft.com/eminent/demo/public/pictures/property-20150921051525.png"
+       data-description="Eastland Bungalow">
+                      <img alt="Eastland Bungalow"
+       src="http://noble-soft.com/eminent/demo/public/pictures/property-20151006125121.png"
+       data-image="http://noble-soft.com/eminent/demo/public/pictures/property-20151006125121.png"
+       data-description="Eastland Bungalow">
+                      <img alt="Eastland Bungalow"
+       src="http://noble-soft.com/eminent/demo/public/pictures/property-20151006125156.png"
+       data-image="http://noble-soft.com/eminent/demo/public/pictures/property-20151006125156.png"
+       data-description="Eastland Bungalow">
+                      <img alt="Eastland Bungalow"
+       src="http://noble-soft.com/eminent/demo/public/pictures/property-20151006125314.png"
+       data-image="http://noble-soft.com/eminent/demo/public/pictures/property-20151006125314.png"
+       data-description="Eastland Bungalow">
+            </div>
+  <br/>
+<script type="text/javascript">
+ jQuery(document).ready(function(){
+   jQuery("#unite-gallery").unitegallery({
+    gallery_autoplay:true
+   });
+ });
+</script>
+</div>         <div class="row text-center" style="padding-bottom: 14px;">
+            <div class="col-md-3 col-sm-6 col-xs-12 share-label"><i class="fa fa-share fa-lg"></i> Share:</div>
+            <div class="col-md-3 col-sm-6 col-xs-4 share-option fb"><a href="https://www.facebook.com/sharer/sharer.php?u=http://noble-soft.com/eminent/demo/public/show/eastland-bungalow" target="_blank"><i class="fa fa-facebook fa-lg"></i>Facebook</a></div>
+            <div class="col-md-3 col-sm-6 col-xs-4 share-option twitter"><a href="https://twitter.com/share?url=http://noble-soft.com/eminent/demo/public/show/eastland-bungalow" target="_blank"><i class="fa fa-twitter fa-lg"></i>Twitter</a></div>
+            <div class="col-md-3 col-sm-6 col-xs-4 share-option gplus"><a href="https://plus.google.com/share?url=http://noble-soft.com/eminent/demo/public/show/eastland-bungalow" target="_blank"><i class="fa fa-google-plus fa-lg"></i>Google</a></div>
+         </div>
+                  <!-- Brief data of property detail. -->
+<div class="row">
+   <div class="col-md-3 info-cell"> Bedrooms
+      <span class="pull-right">
+      4
+      </span>
+   </div>
+   <div class="col-md-3 info-cell"> Bathrooms
+      <span class="pull-right">
+      3
+      </span>
+   </div>
+   <div class="col-md-3 info-cell"> Sleeps
+      <span class="pull-right">
+      7
+      </span>
+   </div>
+   <div class="col-md-3 info-cell"> Garages
+      <span class="pull-right">
+      2
+      </span>
+   </div>
+   <br/>
+   <br/>
+</div>
+<div class="row">
+   <div class="text-center">
+            <div class="col-md-3">
+         <i class="glyphicon glyphicon-ok"></i>
+         Multi Family
+      </div>
+         </div>
+</div>         <!-- Show the main description of property from database -->
+<div class="row">
+   <h3>Description</h3>
+   <div class="col-md-12">
+      <p>Quisque rhoncus et erat vel mollis. Pellentesque quis massa sapien. Vestibulum dictum sed nulla vel aliquet. Cras ornare, turpis id maximus ultricies, enim risus accumsan leo, ut pellentesque augue lacus a ante. Proin vestibulum fermentum efficitur. Praesent vitae maximus est, a vehicula nulla. Aenean pellentesque tortor sed aliquam consequat. Praesent mattis maximus diam in venenatis. Nulla eget mattis nulla. Donec sit amet ultricies leo. In ornare velit id mattis molestie. Phasellus eu justo eu magna pellentesque accumsan. In gravida tellus ut pellentesque porta. Pellentesque fringilla erat a nisi lacinia egestas. Cras a nulla et ipsum auctor dignissim.</p>
+<p>Sed consectetur convallis urna. Mauris luctus sit amet velit a tempor. Duis eleifend consectetur laoreet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut finibus rhoncus felis et pulvinar. Donec maximus ex in ullamcorper faucibus. In ultrices et arcu vitae accumsan. Duis non arcu velit. In quis lectus imperdiet, commodo turpis id, interdum ex.</p>
+<p>Curabitur lobortis eros a purus fermentum cursus. Ut imperdiet dictum consectetur. Nam ut orci vitae lectus laoreet tempus. Vivamus vel turpis accumsan, iaculis mi sed, fringilla justo. Ut tempus suscipit hendrerit. Donec nisl velit, sagittis vel condimentum et, bibendum ut risus. Pellentesque posuere non sem quis consequat. Sed sapien magna, faucibus sed diam sit amet, euismod gravida est. Sed ac faucibus ipsum. Vestibulum at justo est. Duis a placerat lacus. Proin lobortis urna turpis, sed ornare nisi dapibus ac. Proin nec felis sem.</p>
+   </div>
+</div>
+<!-- Show amenities assigned to this property -->
+<div class="row">
+   <h3>Amenities</h3>
+   <ul class="amenities">
+                  <li class="col-md-4">
+         Air Conditioner
+      </li>
+                        <li class="col-md-4">
+         Refrigerator
+      </li>
+                        <li class="col-md-4">
+         Mircrowave
+      </li>
+                        <li class="col-md-4">
+         Child Friendly
+      </li>
+                        <li class="col-md-4">
+         High Speed Internet
+      </li>
+                        <li class="col-md-4">
+         Computer
+      </li>
+                        <li class="col-md-4">
+         TV
+      </li>
+                        <li class="col-md-4">
+         Telephone
+      </li>
+                        <li class="col-md-4">
+         Gameroom
+      </li>
+                        <li class="col-md-4">
+         Fireplace
+      </li>
+                        <li class="col-md-4">
+         Hot Tub
+      </li>
+                        <li class="col-md-4">
+         Washers and Dryer
+      </li>
+                        <li class="col-md-4">
+         Loft
+      </li>
+               </ul>
+</div>
+<!-- Show features assigned to this property -->
+<div class="row">
+   <h3>Features</h3>
+   <ul class="features">
+                  <li class="col-md-4">
+         Year Built
+         <span class="pull-right">
+         <strong>
+         1981
+         </strong>
+         <span>
+      </li>
+                                                                                                                                                                                                                                                                                                                           </ul>
+   <hr />
+</div>                           <div class="row">
+            <!-- Rates table of proerty -->
+<h3>Rates</h3>
+<div class="col-md-12">
+   <table class="table table-striped table-bordered" >
+      <tr>
+         <th scope="row"></th>
+         <td class="text-right">/day</td>
+         <td class="text-right">/week</td>
+         <td class="text-right">/bi-week</td>
+         <td class="text-right">/month</td>
+      </tr>
+      <!-- In the first row of table we load regular prices of the property. -->
+      <tr>
+         <th scope="row">Regular Prices</th>
+         <td class="text-right">
+            $120
+         </td>
+         <td class="text-right">$825</td>
+         <td class="text-right">$1600</td>
+         <td class="text-right">$3150</td>
+      </tr>
+      <!-- Now we load seasons rates of the property from child table. -->
+            <tr>
+         <th scope="row"> New Year Holidays
+            <small class="pull-right">
+            12/18
+            to
+            1/15
+            </small> 
+         </th>
+         <td class="text-right">$120</td>
+         <td class="text-right">$825</td>
+         <td class="text-right">$1600</td>
+         <td class="text-right">$3150</td>
+      </tr>
+            <tr>
+         <th scope="row"> Snow Fun
+            <small class="pull-right">
+            1/16
+            to
+            2/29
+            </small> 
+         </th>
+         <td class="text-right">$120</td>
+         <td class="text-right">$825</td>
+         <td class="text-right">$1600</td>
+         <td class="text-right">$3150</td>
+      </tr>
+            <tr>
+         <th scope="row"> Spring
+            <small class="pull-right">
+            3/1
+            to
+            4/30
+            </small> 
+         </th>
+         <td class="text-right">$130</td>
+         <td class="text-right">$900</td>
+         <td class="text-right">$1770</td>
+         <td class="text-right">$3500</td>
+      </tr>
+            <tr>
+         <th scope="row"> Summer
+            <small class="pull-right">
+            5/1
+            to
+            7/30
+            </small> 
+         </th>
+         <td class="text-right">$150</td>
+         <td class="text-right">$1000</td>
+         <td class="text-right">$1975</td>
+         <td class="text-right">$3900</td>
+      </tr>
+            <tr>
+         <th scope="row"> Autumn
+            <small class="pull-right">
+            8/1
+            to
+            10/31
+            </small> 
+         </th>
+         <td class="text-right">$100</td>
+         <td class="text-right">$675</td>
+         <td class="text-right">$1275</td>
+         <td class="text-right">$2500</td>
+      </tr>
+            <tr>
+         <th scope="row"> Winter Excitement
+            <small class="pull-right">
+            11/1
+            to
+            12/17
+            </small> 
+         </th>
+         <td class="text-right">$175</td>
+         <td class="text-right">$1190</td>
+         <td class="text-right">$2240</td>
+         <td class="text-right">$4400</td>
+      </tr>
+         </table>
+</div>         </div>
+                        </div>
+      <!-- Right Column :: Property Detail -->
+      <div class="col-md-5 booking-form">
+                  <!-- Calendar for showing property availability and clicking and booking the desired dates of reservation -->
+<div class="row">
+   <h3 class="text-center">Select dates of your stay!</h3>
+</div>
+<div class="row">
+   <div class="col-md-12">
+      <div class="col-md-12">
+         <form id="select-the-dates-form" class="form-horizontal" role="form" 
+            action="http://noble-soft.com/eminent/demo/public/reserve/eastland-bungalow/redirect" 
+            method="get">
+            <div class="form-group">
+               <span id="property-calendar-select-dates">
+                  <p>Loading availability calendar...</p>
+                  <i class="fa fa-refresh fa-spin"></i>
+               </span>
+            </div>
+            <div class="form-group" >
+               <span class="pull-right"><mark>
+               Minimum Stay:  1  Night                </mark></span>
+            </div>
+            <!-- upgrade - 12/10/2016 - minimum_nights -->
+            <input type="hidden" name="dates_searched" id="dates-searched" 
+               value="">
+            <div class="form-group" id="booking-availability-message">
+               <!-- AJAX PRICE RESULT SHOWN HERE FOR SELECTED DATES -->
+            </div>
+            <div class="form-group">
+               <span id="calculated-lodging-price">
+                  <!-- calculated-lodging-price -->
+               </span>
+            </div>
+            <div class="form-group hidden" id="calculation-error-container">
+               <div class="alert alert-danger">
+                  <span id="calculation-error-message">
+                     <!-- Calculation Error Message -->
+                  </span>
+               </div>
+            </div>
+            <!--Let the user fill the form and start booking a reservation-->
+            <div class="form-group">
+               <label for="firstname">First Name</label>
+               <input class="form-control" type="text" id="firstname" name="firstname" value="" placeholder="Enter your first name" required />
+            </div>
+            <div class="form-group">
+               <label for="firstname">Last Name</label>
+               <input class="form-control" type="text" id="lastname" name="lastname" value="" placeholder="Enter your last name" required />
+            </div>
+            <div class="form-group">
+               <label for="firstname">Email</label>
+               <input class="form-control" type="email" id="email" name="email" value="" placeholder="Enter your email address" required />
+            </div>
+            <div class="pull-right">
+               <input type="hidden" name="_token" value="dIRhshapjeLneJNN8RKEP02wCxunEeOHSdKCcFXt">
+               <button type="submit" class="btn btn-info btn-block"> Reserve <span class="glyphicon glyphicon-chevron-right"></span> </button>
+            </div>
+            <br />
+            <br />
+         </form>
+      </div>
+   </div>
+</div>                           <br/><br/>
+         <div class="row">
+            <h3>Admin Reviews</h3>
+         </div>
+         <div class="row">
+            <div class="col-md-12">
+               <p>Curabitur lobortis eros a purus fermentum cursus. Ut imperdiet dictum consectetur. Nam ut orci vitae lectus laoreet tempus. Vivamus vel turpis accumsan, iaculis mi sed, fringilla justo. Ut tempus suscipit hendrerit. Donec nisl velit, sagittis vel condimentum et, bibendum ut risus. Pellentesque posuere non sem quis consequat. Sed sapien magna, faucibus sed diam sit amet, euismod gravida est. Sed ac faucibus ipsum. Vestibulum at justo est. Duis a placerat lacus. Proin lobortis urna turpis, sed ornare nisi dapibus ac. Proin nec felis sem.</p>
+            </div>
+         </div>
+         <br/>
+                           <div class="row">
+            <h3>Rental Policies</h3>
+         </div>
+         <div class="row">
+            <div class="col-md-12">
+               <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+            </div>
+         </div>
+                                 </div>
+   </div>
+   <!-- /.row -->
+   <!-- Map of proerty -->
+   
+   <section class="apoi-section">
+      <!-- MARKUP -->
+      <!-- FILTERS -->
+      <div class="apoi-filter-container">
+         <div class="apoi-filter" data-types="atm"><span class="apoi-map-icon map-icon-atm"></span>ATM</div>
+         <div class="apoi-filter" data-types="restaurant"><span class="apoi-map-icon map-icon-restaurant"></span>Restaurant</div>
+         <div class="apoi-filter" data-types="hospital"><span class="apoi-map-icon map-icon-hospital"></span>Hospital</div>
+      </div>
+      <!-- PLACES LIST CONTAINER -->
+      <div id="apoi-list"></div>
+      <!-- PLACE DETAILS CONTAINER -->
+      <div id="apoi-details-container"></div>
+      <!-- AUTOCOMPLETE INPUT -->
+      <div class="apoi-autocomplete-container">
+         <input id="apoi-autocomplete" type="text" placeholder="Enter a location" />
+         <a href="#" id="apoi-geolocation"><span class="apoi-map-icon map-icon-crosshairs"></span></a>
+      </div>
+      <!-- TRANSPORT MODE -->
+      <div class="apoi-transport-modes">
+         <input id="apoi-driving" type="radio" name="apoi-mode" value="DRIVING" checked /><label for="apoi-driving"><span class="apoi-map-icon map-icon-taxi-stand"></span></label>
+         <input id="apoi-bicycling" type="radio" name="apoi-mode" value="BICYCLING" /><label for="apoi-bicycling"><span class="apoi-map-icon map-icon-bicycling"></span></label> 
+         <input id="apoi-transit" type="radio" name="apoi-mode" value="TRANSIT" /><label for="apoi-transit"><span class="apoi-map-icon map-icon-bus-station"></span></label>
+         <input id="apoi-walking" type="radio" name="apoi-mode" value="WALKING" /><label for="apoi-walking"><span class="apoi-map-icon map-icon-walking"></span></label>
+      </div>
+      <!-- MAP / STREET VIEW SWITCH -->
+      <a href="#" id="apoi-switch-street"><span class="apoi-map-icon map-icon-male"></span></a>  
+      <a href="#" id="apoi-switch-map"><span class="apoi-map-icon map-icon-map-pin"></span></a>     
+      <!-- ROUTE TIME -->
+      <div id="apoi-route-time"></div>
+      <!-- MAP CONTAINER -->
+      <div id="apoi-maps-container"></div>
+   </section>
+   </div>
+<!-- /.container -->
+<script>
+   $(document).ready(function() {
+   
+       var $lineitems = [];
+              $lineitems.push({
+           id: "3",
+           title: "Firewood",
+           slug: "firewood_3",
+           is_required: "0",
+           value_type: "fixed",
+           apply_on: "base",
+           value: "20"
+       });
+              $lineitems.push({
+           id: "12",
+           title: "Sales Tax",
+           slug: "sales_tax_12",
+           is_required: "1",
+           value_type: "percentage",
+           apply_on: "sum",
+           value: "7"
+       });
+              $lineitems.push({
+           id: "2",
+           title: "Damage Fee",
+           slug: "damage_fee_2",
+           is_required: "1",
+           value_type: "fixed",
+           apply_on: "base",
+           value: "50"
+       });
+              $lineitems.push({
+           id: "17",
+           title: "Security Deposit",
+           slug: "security_deposit_17",
+           is_required: "1",
+           value_type: "fixed",
+           apply_on: "sum",
+           value: "100"
+       });
+          
+       var calendar = new PropertyCalendar("http://noble-soft.com/eminent/demo/public", "eastland-bungalow", "NA", 'NA');
+          
+       window.onload = calendar.loadCalendar("2018", "9", "NA", "NA");
+   
+       $(document).on('click', '.calendar-navigate', function() {
+           var $year = $(this).data("year");
+           var $month = $(this).data("month");
+           calendar.loadCalendar($year, $month);
+       });
+   
+          
+       window.lastClickCycleID = 0;
+       window.lastClickedDateValue = 0;
+   
+       $(document).on('click', '.date-available', function() {
+           var $id = $(this).data("cycle");
+           var $date = $(this).data("date");
+           calendar.selectDates($id, $date, window.lastClickCycleID, window.lastClickedDateValue);
+           calendar.saveDatesSearchedToSession($date, window.lastClickedDateValue);
+           calendar.preBookingMessage($date, window.lastClickedDateValue);
+           calendar.calculatePrice($date, window.lastClickedDateValue);        
+           window.lastClickCycleID = $id;
+           window.lastClickedDateValue = $date;
+       });
+   });
+   
+</script>
+<script src="http://noble-soft.com/eminent/demo/public/js/reservations.js"></script>
+    <!-- Footer -->
+        <footer>
+      <div class="container">
+        <div class="col-md-4 col-sm-6 footer_links">
+          <h3 class="footer_heading">Featured Properties</h3>
+          
+          <ul>
+                        <li><a href="http://noble-soft.com/eminent/demo/public/show/kanwal-home">&nbsp;Kanwal Home</a></li>
+                        <li><a href="http://noble-soft.com/eminent/demo/public/show/billy-house">&nbsp;Billy House</a></li>
+                        <li><a href="http://noble-soft.com/eminent/demo/public/show/amber-cottage">&nbsp;Amber Cottage</a></li>
+                        <li><a href="http://noble-soft.com/eminent/demo/public/show/lilly-small-home">&nbsp;Lilly Small Home</a></li>
+                        <li><a href="http://noble-soft.com/eminent/demo/public/show/barbara-resort">&nbsp;Barbara Resort</a></li>
+                        <li><a href="http://noble-soft.com/eminent/demo/public/show/eastland-bungalow">&nbsp;Eastland Bungalow</a></li>
+                      </ul>
+        </div>
+        <div class="col-md-4 col-sm-6 footer_links">
+          <h3 class="footer_heading">Featured Pages</h3>
+          <ul>
+                        <li><a href="http://noble-soft.com/eminent/demo/public/blog/enjoy-flying">&nbsp;Enjoy Flying</a></li>
+                        <li><a href="http://noble-soft.com/eminent/demo/public/services/tour-guide">&nbsp;Tour Guide</a></li>
+                        <li><a href="http://noble-soft.com/eminent/demo/public/services/pick-drop">&nbsp;Pick & Drop</a></li>
+                        <li><a href="http://noble-soft.com/eminent/demo/public/information/enjoy-shopping">&nbsp;Enjoy Shopping</a></li>
+                        <li><a href="http://noble-soft.com/eminent/demo/public/activities/enjoy-fishing">&nbsp;Enjoy Fishing</a></li>
+                      </ul>
+        </div>
+        <div class="col-md-4 col-sm-6 footer_links">
+          <h3 class="footer_heading">Contact Us</h3>
+          <p style="color:#8a8888;">Eminent Property Management</p>
+          <p style="color:#8a8888;"><i class="fa fa-home"></i>&nbsp;3 Whitehall,  London SW1A 2DD, UK</p>
+          <p style="color:#8a8888;"><i class="fa fa-envelope-o"></i>&nbsp;reservations@noble-soft.com</p>
+          <p style="color:#8a8888;"><i class="fa fa-phone"></i>&nbsp;(111) 111-1111</p>
+          <p style="color:#8a8888;">Monday - Friday: 9:00 AM to 5:00 PM</p>
+        </div>
+        <div class="copyright">
+          <p>Copyright &copy; All Rights Reserved - Balcony Vacation Rental Theme 2018</p>
+        </div>
+      </div>
+    </footer>    </div>
+    <!-- End of Footer -->
+    <!-- jQuery required for Bootstrap | already included in the head jquery-2.1.0.js -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://noble-soft.com/eminent/demo/public/resources/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <!-- JS -->
+    <script src="http://noble-soft.com/eminent/demo/public/js/modernizr.custom.js" type="text/javascript"></script>
+    <script src="http://noble-soft.com/eminent/demo/public/js/toucheffects.js" type="text/javascript"></script>
+    <!-- Sliders -->
+    <script>
+      $('.carousel').carousel({
+      
+      interval: 5000 //controls the slider speed
+      
+      })
+      
+    </script>
+    <script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip(); 
+    });
+    </script>
+    
+    
+    <!-- End of Customize Date Picker -->
+    <!-- Picture Gallery -->
+    <!-- jQuery required >= 1.8.0  | jQuery already included in the head jquery-2.1.0.js -->
+    <script src="http://noble-soft.com/eminent/demo/public/resources/plugins/lightGallery-master/dist/js/lightgallery.js"></script>
+    <!-- A jQuery plugin that adds cross-browser mouse wheel support. (Optional) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <!-- lightgallery plugins -->
+    <script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
+    <script src="http://noble-soft.com/eminent/demo/public/resources/plugins/lightGallery-master/dist/js/lg-fullscreen.js"></script>
+    <script src="http://noble-soft.com/eminent/demo/public/resources/plugins/lightGallery-master/dist/js/lg-thumbnail.js"></script>
+    <script src="http://noble-soft.com/eminent/demo/public/resources/plugins/lightGallery-master/dist/js/lg-video.js"></script>
+    <script src="http://noble-soft.com/eminent/demo/public/resources/plugins/lightGallery-master/dist/js/lg-autoplay.js"></script>
+    <script src="http://noble-soft.com/eminent/demo/public/resources/plugins/lightGallery-master/dist/js/lg-zoom.js"></script>
+    <script src="http://noble-soft.com/eminent/demo/public/resources/plugins/lightGallery-master/dist/js/lg-hash.js"></script>
+    <script src="http://noble-soft.com/eminent/demo/public/resources/plugins/lightGallery-master/dist/js/lg-pager.js"></script>
+    <!-- End of Picture Gallery -->
+
+    <!-- Load the javascript code defined in the view page. -->
+       <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDkJgWmx1PGNLDl5my-EEgeYIEOtI5ij2w&sensor=false&libraries=places"></script>
+   <script src="http://noble-soft.com/eminent/demo/public/resources/plugins/jquery-awesomePOI/src/jquery.awesomePOI.js"></script>
+   <script>
+      $( window ).load(function() {
+        $('#apoi-maps-container').awesomePOI({
+          start: "point",address: "Eastland Bungalow",pyrmont: {lat: 51.51405, lng:  -0.13921},radius: "1500",streetView: true,autocomplete: true,userLocation: true,routeMode: true,placesList: true,placeDetails: true,routeTime: true,route: true,multiple: true,iconSize: "large",iconColor: "gold",cluster: true,zoom: 15,wheelScroll: true,   });       
+      });   
+   </script> 
+       
+    <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-68834369-1', 'auto');ga('send', 'pageview');</script>
+        <style type="text/css">
+  .slow-spin {
+  -webkit-animation: fa-spin 6s infinite linear;
+  animation: fa-spin 6s infinite linear;
+  }
+  #settings-button {
+  right:-60px; top:30px;
+  position: absolute;
+  background-color: #ddd;
+  border: solid 1px #ccc;
+  color:#222;
+  }
+  #theme-options-panel {
+  float: left;
+  height:350px;
+  width:250px;
+  z-index:2;
+  position:fixed;
+  top:55px;
+  left:-250px;
+  background:#ddd; border: solid 1px #ccc;
+  color:#000;
+  z-index: 1400;
+  }
+  #theme-options-panel > div > .box {
+  width: 25px;
+  height: 25px;
+  margin: 5px;
+  cursor: pointer;
+  float: left;
+  }
+  #theme-options-panel > div > .themebutton001 {
+  border-top: #1d5134 solid 7px;
+  background-color: #48a942;
+  }
+  #theme-options-panel > div > .themebutton002 {
+  border-top: #511D3A solid 7px;
+  background-color: #A342A9;
+  }
+  #theme-options-panel > div > .themebutton003 {
+  border-top: #2F1D51 solid 7px;
+  background-color: #4252A9;
+  }
+  #theme-options-panel > div > .themebutton004 {
+  border-top: #1D3E51 solid 7px;
+  background-color: #42A99A;
+  }
+  #theme-options-panel > div > .themebutton005 {
+  border-top: #51391D solid 7px;
+  background-color: #A94642;
+  }
+</style>
+<div id="theme-options-panel" style="text-align: center;">
+  <a href="#" id="settings-button"><i class="fa fa-cog  fa-spin fa-3x fa-fw slow-spin"></i></a>
+    <h4>Theme Colors!</h4>
+    <div style="margin-left:35px;">
+  <div class="box themebutton001" data-theme_options_color="http://noble-soft.com/eminent/demo/public/css/eminent-theme-001.css"></div>
+  <div class="box themebutton002" data-theme_options_color="http://noble-soft.com/eminent/demo/public/css/eminent-theme-002.css"></div>
+  <div class="box themebutton003" data-theme_options_color="http://noble-soft.com/eminent/demo/public/css/eminent-theme-003.css"></div>
+  <div class="box themebutton004" data-theme_options_color="http://noble-soft.com/eminent/demo/public/css/eminent-theme-004.css"></div>
+  <div class="box themebutton005" data-theme_options_color="http://noble-soft.com/eminent/demo/public/css/eminent-theme-005.css"></div>
+  <br/><br/>
+</div>
+
+
+<div>
+  <h4>Header Style</h4>| 
+  <a href="?theme_options_header=1">01</a> | 
+  <a href="?theme_options_header=2">02</a> | 
+  <a href="?theme_options_header=3">03</a> | 
+  <a href="?theme_options_header=4">04</a> | 
+  <a href="?theme_options_header=5">05</a> | 
+</div>
+
+
+<div>
+  <h4>Hero Style</h4>| 
+  <a href="?theme_options_hero=1" data-toggle="tooltip" title="Bootstrap Carousel Simple">01</a> | 
+  <a href="?theme_options_hero=2" data-toggle="tooltip" title="Transparent">02</a> | 
+  <a href="?theme_options_hero=3">03</a> | 
+  <a href="?theme_options_hero=4">04</a> |
+</div>
+
+
+
+<div>
+  <h4>Home Style</h4>| 
+  <a href="?theme_options_home=1">01</a> | 
+  <a href="?theme_options_home=2">02</a> | 
+  <a href="?theme_options_home=3">03</a> | 
+  <a href="?theme_options_home=4">04</a> |
+</div>
+
+
+
+
+</div>
+<script>
+  function setCookie(cname,cvalue,exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires=" + d.toGMTString();
+      document.cookie = cname+"="+cvalue+"; "+expires;
+  }
+  
+  function getCookie(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+      for(var i=0; i<ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0)==' ') c = c.substring(1);
+          if (c.indexOf(name) == 0) {
+              return c.substring(name.length, c.length);
+          }
+      }
+      return "";
+  }
+  
+  $(function() {
+      $('#theme-options-panel > div > .box').click(function (){
+      var theme_options_color = $(this).data('theme_options_color');
+      $('#theme_options_color').attr('href',theme_options_color);
+      setCookie("theme_options_color", theme_options_color, 30);
+  });
+  });
+  
+  
+  $(document).ready(function(){
+  $('#settings-button').click(function(){
+  var toggleoptions = $('#theme-options-panel');
+  var settingsbutton = $('#settings-button');
+  if (toggleoptions.hasClass('visible')){
+    toggleoptions.animate({"left":"-250px"}, "slow").removeClass('visible');
+    //settingsbutton.animate({"left":"200px"}, "slow");
+  } else {
+    //settingsbutton.animate({"left":"400px"}, "slow");
+    toggleoptions.animate({"left":"0px"}, "slow").addClass('visible');
+  }
+  });
+  });
+</script>    
+  </body>
+</html>

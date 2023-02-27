@@ -1,0 +1,72 @@
+#light-gallery {
+    margin-left: -10px;
+}
+#light-gallery > .zoomable {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+#light-gallery > .zoomable a {
+    overflow: hidden;
+    border: 0px solid gray;
+    position: absolute;
+    width: 95%;
+    height: 100%;
+    z-index: 1;
+}
+#light-gallery > .zoomable > .overlay {
+    z-index: 3;
+    position: relative;
+    bottom: auto;
+    width: 100%;
+    height: 100px;
+    opacity: 1;
+    background: url('../img/zoom.png') right bottom no-repeat;
+    cursor: pointer;
+    -webkit-transition: all 1s ease;
+    /* Safari and Chrome */
+    
+    -moz-transition: all 1s ease;
+    /* Firefox */
+    
+    -o-transition: all 1s ease;
+    /* IE 9 */
+    
+    -ms-transition: all 1s ease;
+    /* Opera */
+    
+    transition: all 1s ease;
+}
+#light-gallery > .zoomable:hover > .overlay {
+    display: block;
+    opacity: 1;
+}
+#light-gallery > .zoomable img {
+    -webkit-transition: all 1s ease;
+    /* Safari and Chrome */
+    
+    -moz-transition: all 1s ease;
+    /* Firefox */
+    
+    -o-transition: all 1s ease;
+    /* IE 9 */
+    
+    -ms-transition: all 1s ease;
+    /* Opera */
+    
+    transition: all 1s ease;
+}
+#light-gallery > .zoomable:hover img {
+    -webkit-transform: scale(1.1);
+    /* Safari and Chrome */
+    
+    -moz-transform: scale(1.1);
+    /* Firefox */
+    
+    -ms-transform: scale(1.1);
+    /* IE 9 */
+    
+    -o-transform: scale(1.1);
+    /* Opera */
+    
+    transform: scale(1.1);
+}

@@ -1,0 +1,8 @@
+#documenter_content table td {
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+}
+#documenter_content table {
+    width: 100%;
+}

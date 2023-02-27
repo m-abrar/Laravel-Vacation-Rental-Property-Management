@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Place searches</title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+		<meta charset="utf-8">
+		
+		<link href="../src/awesomePOI.css" media="all" rel="stylesheet" type="text/css" />
+		<link href="../src/skins/skin4.css" media="all" rel="stylesheet" type="text/css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+		
+	</head>
+		
+	<body>
+		
+		
+		
+		<section class="apoi-section">
+			<!-- MARKUP -->
+			
+			<!-- FILTERS --->
+			<div class="apoi-filter-container">
+				<div class="apoi-filter" data-types="city_hall,local_government_office">
+					<span class="apoi-map-icon map-icon-city-hall"></span>
+					Authorities
+				</div>
+				<div class="apoi-filter" data-types="museum">
+					<span class="apoi-map-icon map-icon-museum"></span>
+					Museums
+				</div>
+				<div class="apoi-filter" data-types="hospital,doctor">
+					<span class="apoi-map-icon map-icon-doctor"></span>
+					Hospitals
+				</div>
+				<div class="apoi-filter" data-types="university,school">
+					<span class="apoi-map-icon map-icon-school"></span>
+					Schools
+				</div>
+				<div class="apoi-filter" data-types="subway_station,bus_station,train_station,transit_station">
+					<span class="apoi-map-icon map-icon-transit-station"></span>
+					Transportation
+				</div>
+				<div class="apoi-filter" data-types="restaurant">
+					<span class="apoi-map-icon map-icon-restaurant"></span>
+					Restaurants
+				</div>
+				<div class="apoi-filter" data-types="bar">
+					<span class="apoi-map-icon map-icon-bar"></span>
+					Bars
+				</div>				
+				<div class="apoi-filter" data-types="art_gallery">
+					<span class="apoi-map-icon map-icon-art-gallery"></span>
+					Art galleries
+				</div>
+				<div class="apoi-filter" data-types="shopping_mall">
+					<span class="apoi-map-icon map-icon-shopping-mall"></span>
+					Shopping malls
+				</div>
+			</div>
+						
+			<!-- PLACES LIST CONTAINER -->
+			<div id="apoi-list"></div>
+			
+			<!-- PLACE DETAILS CONTAINER -->
+			<div id="apoi-details-container"></div>
+			
+			<!-- AUTOCOMPLETE INPUT -->
+			<div class="apoi-autocomplete-container">
+				<input id="apoi-autocomplete" type="text" placeholder="Enter a location" />
+				<a href="#" id="apoi-geolocation"><span class="apoi-map-icon map-icon-crosshairs"></span></a>
+			</div>
+			
+			<!-- TRANSPORT MODE -->
+			<div class="apoi-transport-modes">
+				<input id="apoi-driving" type="radio" name="apoi-mode" value="DRIVING" checked /><label for="apoi-driving"><span class="apoi-map-icon map-icon-taxi-stand"></span></label>
+				<input id="apoi-bicycling" type="radio" name="apoi-mode" value="BICYCLING" /><label for="apoi-bicycling"><span class="apoi-map-icon map-icon-bicycling"></span></label> 
+				<input id="apoi-transit" type="radio" name="apoi-mode" value="TRANSIT" /><label for="apoi-transit"><span class="apoi-map-icon map-icon-bus-station"></span></label>
+				<input id="apoi-walking" type="radio" name="apoi-mode" value="WALKING" /><label for="apoi-walking"><span class="apoi-map-icon map-icon-walking"></span></label>
+			</div>
+			
+			<!-- MAP / STREET VIEW SWITCH -->
+			<a href="#" id="apoi-switch-street"><span class="apoi-map-icon map-icon-male"></span></a>  
+			<a href="#" id="apoi-switch-map"><span class="apoi-map-icon map-icon-map-pin"></span></a>
+			
+			<!-- ROUTE TIME -->
+			<div id="apoi-route-time"></div>
+			
+			<!-- MAP CONTAINER -->
+			<div id="apoi-maps-container"></div>
+			
+			
+	
+		</section>
+		
+		
+		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDkJgWmx1PGNLDl5my-EEgeYIEOtI5ij2w&sensor=false&libraries=places"></script>
+		<script src="../src/jquery.awesomePOI.js"></script>
+		<script>
+			$( window ).load(function() {
+				$('#apoi-maps-container').awesomePOI({
+					filterClass: 'apoi-filter',
+					start: 'both', 
+					//address: 'New York, USA',
+					pyrmont: {lat: 41.496855, lng: -81.666398},
+					radius: 1300,
+					streetView: true,
+					switchStreetClass: 'apoi-switch-street',
+					switchMapClass: 'apoi-switch-map',
+					autocomplete: true,
+					autocompleteId: 'apoi-autocomplete',
+					userLocation: true,					
+					userLocationId: 'apoi-geolocation',
+					routeMode: false,
+					modeName: 'apoi-mode',
+					placesList: true,
+					placesListId: 'apoi-list',
+					placeDetails: true,
+					placeDetailsId: 'apoi-details-container',
+					routeTime: true,
+					routeTimeId: 'apoi-route-time',
+					route: false,
+					multiple: true,
+					iconSize: 'large',
+					iconType: 'pin3',
+					iconColor: 'yellow',
+					//kmlFile: 'https://download.geofabrik.de/europe/germany/berlin.kml',
+					//geoJOSNFile: 'https://storage.googleapis.com/mapsdevsite/json/google.json',
+					jsonFile: '',
+					startTypes: 'library',
+					startPointIcon: '../src/icons/icon-pin1-blue.png',
+					startTypesIcon: '../src/icons/icon-pin1-red.png',
+					cluster: true,
+					clusterIcon: '../src/icons/pin-empty.png',
+					zoom: 16,
+					wheelScroll: true,
+					debug: true,
+					//mapStyle: [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#3e606f"},{"weight":2},{"gamma":0.84}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry","stylers":[{"weight":0.6},{"color":"#1a3541"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#2c5a71"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#406d80"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#2c5a71"}]},{"featureType":"road","elementType":"geometry","stylers":[{"color":"#29768a"},{"lightness":-37}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#406d80"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#193341"}]}],
+					
+					onMapInit: function( map ) { console.log('onMapInit ' + map); },
+					onAfterSearch: function() { console.log('onAfterSearch '); },
+					onAfterSearchJSON: function() { console.log('onAfterSearchJSON '); },
+					onDetailsShow: function( place ) { console.log('onDetailsShow ' +  place); },
+					onAfterRoute: function( route ) { console.log('onAfterRoute ' + route); },
+					onGeolocation: function( geolocation ) { console.log('onGeolocation ' +  geolocation); },
+					onAutocomplete: function( loc ) { console.log('onAutocomplete ' + loc); },
+					onModeChange: function( mode ) { console.log('onModeChange ' + mode); },
+				});
+				
+			});
+
+		</script>
+	</body>
+</html>

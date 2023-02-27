@@ -1,0 +1,1098 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>awesomePOI - Better Contact Map and Nearby Places</title>
+	
+	<meta name="description" content="awesomePOI is a jQuery plugin that boost up your Google Map. It allows to display near points of interest (POI), show their details and find the route.">
+	<meta name="author" content="Jan Skwara (johnnychaos)">
+	<meta name="copyright" content="Jan Skwara (johnnychaos)">
+	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
+	<meta name="date" content="2017-08-23T00:00:00+02:00">
+	
+	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+	<link rel="stylesheet" href="assets/js/google-code-prettify/prettify.css" media="screen">
+	<script src="assets/js/google-code-prettify/prettify.js"></script>
+
+	<link rel="stylesheet" href="assets/css/docs.css" media="screen">
+
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+	<script src="assets/js/jquery.js"></script>
+	
+	<script src="assets/js/jquery.scrollTo.js"></script>
+	<script src="assets/js/jquery.easing.js"></script>
+	
+	<script>document.createElement('section');var duration='500',easing='swing';</script>
+	<script src="assets/js/script.js"></script>
+	
+	<style>
+		html{background-color:#FFFFFF;color:#383838;}
+		::-moz-selection{background:#6F1D93;color:#FFFFFF;}
+		::selection{background:#6F1D93;color:#FFFFFF;}
+		#documenter_sidebar #documenter_logo{background-image:url(assets/images/image_2.png);}
+		a{color:#6F1D93;}
+		.btn {
+			border-radius:3px;
+		}
+		.btn-primary {
+			  background-image: -moz-linear-gradient(top, #6F1D93, #6F1D93);
+			  background-image: -ms-linear-gradient(top, #6F1D93, #6F1D93);
+			  background-image: -webkit-gradient(linear, 0 0, 0 6F1D93%, from(#7D29A2), to(#6F1D93));
+			  background-image: -webkit-linear-gradient(top, #6F1D93, #6F1D93);
+			  background-image: -o-linear-gradient(top, #6F1D93, #6F1D93);
+			  background-image: linear-gradient(top, #6F1D93, #6F1D93);
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6F1D93', endColorstr='#6F1D93', GradientType=0);
+			  border-color: #6F1D93 #6F1D93 #bfbfbf;
+			  color:#FFFFFF;
+		}
+		.btn-primary:hover,
+		.btn-primary:active,
+		.btn-primary.active,
+		.btn-primary.disabled,
+		.btn-primary[disabled] {
+		  border-color: #6F1D93 #6F1D93 #bfbfbf;
+		  background-color: #6F1D93;
+		}
+		hr{border-top:1px solid #EBEBEB;border-bottom:1px solid #FFFFFF;}
+		#documenter_sidebar, #documenter_sidebar ul a{background-color:#7D29A2;color:#F5F5F5;}
+		#documenter_sidebar ul a{-webkit-text-shadow:1px 1px 0px #8C2FB5;-moz-text-shadow:1px 1px 0px #8C2FB5;text-shadow:1px 1px 0px #8C2FB5;}
+		#documenter_sidebar ul{border-top:1px solid #6F1D93;}
+		#documenter_sidebar ul a{border-top:1px solid #8C2FB5;border-bottom:1px solid #6F1D93;color:#FFFFFF;}
+		#documenter_sidebar ul a:hover{background:#6F1D93;color:#FFFFFF;border-top:1px solid #6F1D93;}
+		#documenter_sidebar ul a.current{background:#6F1D93;color:#FFFFFF;border-top:1px solid #6F1D93;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+	</style>
+	
+</head>
+<body class="documenter-project-awesomepoi">
+	<div id="documenter_sidebar">
+		<a href="#documenter_cover" id="documenter_logo"></a>
+		<ul id="documenter_nav">
+			<li><a class="current" href="#documenter_cover">Start</a></li>
+				
+			<li><a href="#overview" title="1. Overview">1. Overview</a></li>
+			<li><a href="#builder" title="2. Builder">2. Builder</a></li>
+			<li><a href="#markup" title="3. Markup">3. Markup</a></li>
+			<li><a href="#options_functions" title="4. Options & Functions">4. Options & Functions</a></li>
+			<li><a href="#custom_pins" title="5. Custom Pins">5. Custom Pins</a></li>
+			<li><a href="#custom_places_form_json" title="6. Custom Places form JSON">6. Custom Places form JSON</a></li>
+			<li><a href="#kml_geojson" title="7. KML & GeoJSON">7. KML & GeoJSON</a></li>
+			<li><a href="#support_customization" title="8. Support & Customization">8. Support & Customization</a></li>
+			<li><a href="#" title=""></a></li>
+
+		</ul>
+		<div id="documenter_copyright">Copyright Jan Skwara (johnnychaos) 2017<br>
+		made with the <a href="http://rxa.li/documenter">Documenter v2.0</a> 
+		</div>
+	</div>
+	<div id="documenter_content">
+	<section id="documenter_cover">
+	<h1>awesomePOI</h1>
+	<h2>Better Contact Map and Nearby Places</h2>
+	<div id="documenter_buttons">
+		<a href="http://chart.civ.pl/plugins/awesomePOI/" class="btn btn-primary btn-large">Demo</a> <a href="https://themeforest.net/user/johnnychaos/portfolio" class="btn btn-large">Portfolio</a> 
+	</div>
+	<hr>
+	<ul>
+	<li>created: 08/14/2017</li>
+	<li>latest update: 08/23/2017</li>
+	<li>by: Jan Skwara (johnnychaos)</li>
+	<li><a href="https://themeforest.net/user/johnnychaos/portfolio">themeforest.net/user/johnnychaos/portfolio</a></li>
+	<li>email: <a href="mailto:&#116;&#104;&#101;&#109;&#101;&#102;&#111;&#114;&#101;&#115;&#116;&#64;&#103;&#101;&#114;&#109;&#105;&#110;&#111;&#46;&#112;&#108;">&#116;&#104;&#101;&#109;&#101;&#102;&#111;&#114;&#101;&#115;&#116;&#64;&#103;&#101;&#114;&#109;&#105;&#110;&#111;&#46;&#112;&#108;</a></li>
+	</ul>
+	<p></p>
+	</section>
+	
+	<section id="overview">
+	<div class="page-header"><h3>1. Overview</h3><hr class="notop"></div>
+<p>
+	<img alt="" src="assets/images/image_1.png"  ></p>
+<p>
+	&nbsp;</p>
+<p>
+	<strong>awesomePOI</strong> is a jQuery plugin that boost up your Google Map. It allows you to display near points of interest (POI), show their details and find the route.</p>
+<p>
+	It&#39;s a great addon for every Map, especially contact maps, hotels, real estate and more. You can use Google Places Library or import your own places from JSON file, so you can create every map you want, for example locations map from your holiday (<a href="http://chart.civ.pl/plugins/awesomePOI/json/india.html" target="_blank">example</a>).</p>
+<p>
+	Plugin is highly customizable. You can choose one of 5 beautiful responsive skins, or create new one. There qre 140 Pins and 175 icons to choose from. You can even change map style and decide which elements you want on the map.</p>
+<p>
+	Seems complicated? <strong>Don&#39;t worry, plugin has a</strong> <strong>BUILDER</strong>. You can choose options and create a map <strong>without any coding</strong>!</p>
+<p>
+	<a href="http://chart.civ.pl/plugins/awesomePOI/" target="_blank">Check the demo!</a></p>
+<p>
+	&nbsp;</p>
+<section class="pad-sm" id="main-info">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2 text-center margin-30">
+				<h4 id="overview_key_feautres">Key feautres</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-md-6 text-center margin-30 wow fadeIn" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeIn;">
+				<ul class="text-left">
+					<li>
+						<strong>Map Builder included</strong> - no coding skills needed.</li>
+					<li>
+						Browse Google Places.</li>
+					<li>
+						Browse Custom Places from JOSN file.</li>
+					<li>
+						Display rotues from Nearby Places, your location or given address.</li>
+					<li>
+						Choose transport mode and view navigation details.</li>
+					<li>
+						Display places details (contact info, places, reviews).</li>
+					<li>
+						Display Street View.</li>
+				</ul>
+			</div>
+			<div class="col-sm-12 col-md-6 text-center margin-30 wow fadeIn" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeIn;">
+				<ul class="text-left">
+					<li>
+						Simple or complex map - decide which blocks you want to show.</li>
+					<li>
+						Customize the map - 5 ready skins and option to create new with CSS editing.</li>
+					<li>
+						Customize the map - choose from 140 pins &amp; 175 icons or use your own.</li>
+					<li>
+						Customize the map - Choose icon size and color.</li>
+					<li>
+						Customize the map - use custom <a href="https://snazzymaps.com" target="blank">Map Styles</a>.</li>
+					<li>
+						Add additonal info, layers and shapes to your map with <a href="https://developers.google.com/kml/documentation/" target="blank">KML</a> or <a href="https://en.wikipedia.org/wiki/GeoJSON" target="blank">GeoJSON</a> files.</li>
+					<li>
+						Use callback functions attached to each event.</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+<p>
+	&nbsp;</p>
+<div class="alert alert-info">
+	YOU HAVE TO get Google Maps API key.&nbsp; You can generate it for free here: <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank">https://developers.google.com/maps/documentation/javascript/get-api-key</a></div>
+<div class="alert alert-info">
+	When you run the script on the local computer, you may not see some icons. Everything works fine when you&#39;re on the server.</div>
+</section>
+<section id="builder">
+	<div class="page-header"><h3>2. Builder</h3><hr class="notop"></div>
+<p>
+	Plugin comes with the builder. Instaed of editing code you can fill up the form and copy ready code.</p>
+<p>
+	You can find builder in the downloaded package in the <strong>builder</strong> folder.</p>
+<p>
+	Builder fields have hints to help you get started. Check also chapter &quot;4. Options &amp; Functions&quot; to lear about all options.</p>
+<div class="alert alert-info">
+	Builder must be run on the srver with the PHP support. It won&#39;t work on your local computer unless you run a sever.</div>
+</section>
+<section id="markup">
+	<div class="page-header"><h3>3. Markup</h3><hr class="notop"></div>
+<h4 id="markup_41_default_markup">4.1 Default markup</h4>
+<p>
+	Below you will find minimal markup with default classes and ID&#39;s. You can change block ID&#39;s but you needd to pass new names to the plugin (see 4. Options &amp; Function).</p>
+<p>
+	Code that should be placed in the &lt;head&gt;&lt;/head&gt; tag:</p>
+<pre class="prettyprint lang-html linenums">
+&lt;link href=&quot;PLUGIN_PATH/src/awesomePOI.css&quot; media=&quot;all&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+&lt;link id=&quot;poiskin&quot; href=&quot;PLUGIN_PATH/src/skinX.css&quot; media=&quot;all&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+&lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;  </pre>
+<p>
+	Don&#39;t forget to change PLUGIN_PATH to correct plugin location. Also change skinX to one of the 5 skins (skin1, skin2, skin3, skin4, skin5).</p>
+<p>
+	&nbsp;</p>
+<p>
+	Code that should be placed in the &lt;body&gt;&lt;/body&gt; tag, in the place tou want to display the map:</p>
+<pre class="prettyprint lang-html linenums">
+&lt;section class=&quot;apoi-section&quot;&gt;
+   &lt;!-- MARKUP --&gt;
+            
+      &lt;!-- FILTERS ---&gt;
+      &lt;div class=&quot;apoi-filter-container&quot;&gt;
+         &lt;div class=&quot;apoi-filter&quot; data-types=&quot;&quot;&gt;
+            Filter 1
+         &lt;/div&gt;
+         &lt;div class=&quot;apoi-filter&quot; data-types=&quot;&quot;&gt;
+            Filter 2
+         &lt;/div&gt;
+         [...]
+       &lt;/div&gt;
+     
+       &lt;!-- PLACES LIST CONTAINER --&gt;
+       &lt;div id=&quot;apoi-list&quot;&gt;&lt;/div&gt;
+            
+       &lt;!-- PLACE DETAILS CONTAINER --&gt;
+       &lt;div id=&quot;apoi-details-container&quot;&gt;&lt;/div&gt;
+            
+       &lt;!-- AUTOCOMPLETE INPUT --&gt;
+       &lt;div class=&quot;apoi-autocomplete-container&quot;&gt;
+          &lt;input id=&quot;apoi-autocomplete&quot; type=&quot;text&quot; placeholder=&quot;Enter a location&quot; /&gt;
+          &lt;a href=&quot;#&quot; id=&quot;apoi-geolocation&quot;&gt;&lt;span class=&quot;apoi-map-icon map-icon-crosshairs&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+       &lt;/div&gt;
+            
+       &lt;!-- TRANSPORT MODE --&gt;
+       &lt;div class=&quot;apoi-transport-modes&quot;&gt;
+          &lt;input id=&quot;apoi-driving&quot; type=&quot;radio&quot; name=&quot;apoi-mode&quot; value=&quot;DRIVING&quot; checked /&gt;&lt;label for=&quot;apoi-driving&quot;&gt;&lt;span class=&quot;apoi-map-icon map-icon-taxi-stand&quot;&gt;&lt;/span&gt;&lt;/label&gt;
+          &lt;input id=&quot;apoi-bicycling&quot; type=&quot;radio&quot; name=&quot;apoi-mode&quot; value=&quot;BICYCLING&quot; /&gt;&lt;label for=&quot;apoi-bicycling&quot;&gt;&lt;span class=&quot;apoi-map-icon map-icon-bicycling&quot;&gt;&lt;/span&gt;&lt;/label&gt;
+          &lt;input id=&quot;apoi-transit&quot; type=&quot;radio&quot; name=&quot;apoi-mode&quot; value=&quot;TRANSIT&quot; /&gt;&lt;label for=&quot;apoi-transit&quot;&gt;&lt;span class=&quot;apoi-map-icon map-icon-bus-station&quot;&gt;&lt;/span&gt;&lt;/label&gt;
+          &lt;input id=&quot;apoi-walking&quot; type=&quot;radio&quot; name=&quot;apoi-mode&quot; value=&quot;WALKING&quot; /&gt;&lt;label for=&quot;apoi-walking&quot;&gt;&lt;span class=&quot;apoi-map-icon map-icon-walking&quot;&gt;&lt;/span&gt;&lt;/label&gt;
+        &lt;/div&gt;
+            
+        &lt;!-- MAP / STREET VIEW SWITCH --&gt;
+        &lt;a href=&quot;#&quot; id=&quot;apoi-switch-street&quot;&gt;&lt;span class=&quot;apoi-map-icon map-icon-male&quot;&gt;&lt;/span&gt;&lt;/a&gt;  
+        &lt;a href=&quot;#&quot; id=&quot;apoi-switch-map&quot;&gt;&lt;span class=&quot;apoi-map-icon map-icon-map-pin&quot;&gt;&lt;/span&gt;&lt;/a&gt;            
+            
+        &lt;!-- ROUTE TIME --&gt;
+        &lt;div id=&quot;apoi-route-time&quot;&gt;&lt;/div&gt;
+            
+        &lt;!-- MAP CONTAINER --&gt;
+        &lt;div id=&quot;apoi-maps-container&quot;&gt;&lt;/div&gt;            
+    
+&lt;/section&gt;</pre>
+<p>
+	&nbsp;</p>
+<p>
+	Code that should be placed just before the&lt;/body&gt; (closing body tag):</p>
+<pre class="prettyprint lang-html linenums">
+&lt;script src=&quot;http://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&amp;sensor=false&amp;libraries=places&quot;&gt;&lt;/script&gt;  
+&lt;script src=&quot;href=&quot;PLUGIN_PATH/src/jquery.awesomePOI.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    $( window ).load(function() {
+        $(&#39;#apoi-maps-container&#39;).awesomePOI();                
+    });        
+&lt;/script&gt;</pre>
+<p>
+	&nbsp;</p>
+<div class="alert alert-info">
+	YOU HAVE TO change YOUR_API_KEY to the one you can generate for free here: <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank">https://developers.google.com/maps/documentation/javascript/get-api-key</a></div>
+<p>
+	Don&#39;t forget to change PLUGIN_PATH to correct plugin location.</p>
+<p>
+	You can also add some configuration options to the $(&#39;#apoi-maps-container&#39;).awesomePOI();</p>
+<p>
+	Read more about it in 4. Options &amp; Functions. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p>
+	&nbsp;</p>
+<h4 id="markup_42_creating_filters">4.2 Creating filters</h4>
+<p>
+	While the most of the code you should &quot;leave as it is&quot; (unless you want to move it according to your desing), there is one section you need to edit. It&#39;s &lt;div class=&quot;apoi-filter-container&quot;&gt; which contains filters (menu elements, that allow you to create navigation for your map). Below is the example of filters from the demo:</p>
+<p>
+	&nbsp;</p>
+<p>
+	<img alt="" src="assets/images/image_3.png"></p>
+<p>
+	&nbsp;</p>
+<p>
+	Single filter looks like this:</p>
+<pre class="prettyprint lang-html linenums">
+&lt;div class=&quot;apoi-filter&quot; data-types=&quot;some-type,some-type2&quot;&gt;
+   Filter name
+&lt;/div&gt;</pre>
+<p>
+	What you need to change is the <strong>Filter name</strong> and <strong>data-types.</strong> If you use Google Places library, all available types you can find here: <a href="https://developers.google.com/places/web-service/supported_types" target="_blank">https://developers.google.com/places/web-service/supported_types</a> (table1). For example if you want to show airports on the map, you will add <strong>data-types=&quot;<code>airport&quot;.</code></strong></p>
+<p>
+	You can attach more than one type to the filter. For example if you want to show all restaurants, cafes and bars, filter will look like this</p>
+<pre class="prettyprint lang-html linenums">
+&lt;div class=&quot;apoi-filter&quot; data-types=&quot;restaurant,cafe,bar&quot;&gt;
+   Restaurants
+&lt;/div&gt;</pre>
+<p>
+	&nbsp;</p>
+<p>
+	if you use custom JSON file, you have to change it a bit and add data-source=&quot;json&quot;:</p>
+<pre class="prettyprint lang-html linenums">
+&lt;div class=&quot;apoi-filter&quot; data-source=&quot;json&quot; data-types=&quot;restaurant,cafe,bar&quot;&gt;
+   Restaurants
+&lt;/div&gt;</pre>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+</section>
+<section id="options_functions">
+	<div class="page-header"><h3>4. Options & Functions</h3><hr class="notop"></div>
+<h4 id="options_functions_51_options">5.1 Options</h4>
+<p>
+	Below you will find all configuration options with descriptions. Here is how to call options (you can only add those you wan&#39;t to change from default values):</p>
+<p>
+	&nbsp;</p>
+<pre class="prettyprint lang-js linenums">
+$(&#39;#apoi-maps-container&#39;).awesomePOI({
+   filterClass: &#39;apoi-filter&#39;,
+   start: &#39;point&#39;,
+   startTypes: &#39;&#39;,
+   startPointIcon:&#39;../src/icons/icon-pin1-blue.png&#39;,
+   startTypesIcon: &#39;../src/icons/icon-pin1-red.png&#39;,
+   address: &#39;&#39;,
+   pyrmont: {lat: 52.520645, lng: 13.409779},
+   radius: 500,
+   streetView: true,
+   switchStreetClass: &#39;apoi-switch-street&#39;,
+   switchMapClass: &#39;apoi-switch-map&#39;,
+   autocomplete: true,
+   autocompleteId: &#39;apoi-autocomplete&#39;,
+   userLocation: true,                
+   userLocationId: &#39;apoi-geolocation&#39;,
+   routeMode: true,
+   modeName: &#39;apoi-mode&#39;,
+   placesList: true,
+   placesListId: &#39;apoi-list&#39;,
+   placeDetails: true,
+   placeDetailsId: &#39;apoi-details-container&#39;,
+   routeTime: true,
+   routeTimeId: &#39;apoi-route-time&#39;,
+   route: true,
+   routeId: &#39;apoi-route&#39;,
+   multiple: true,
+   iconSize: &#39;large&#39;,
+   iconType: &#39;pin1&#39;,
+   iconColor: &#39;navy&#39;,
+   kmlFile: &#39;&#39;,
+   geoJOSNFile: &#39;&#39;,
+   jsonFile: &#39;&#39;,                
+   cluster: true,
+   clusterIcon: &#39;../src/icons/pin-empty.png&#39;,
+   zoom: 16,
+   wheelScroll: false,
+   debug: true,
+   mapStyle: false,
+
+});</pre>
+<p>
+	&nbsp;</p>
+<table border="1" cellpadding="0" cellspacing="0" height="644" width="625">
+	<thead>
+		<tr>
+			<th scope="col">
+				Parameter</th>
+			<th scope="col">
+				Type</th>
+			<th scope="col">
+				Default</th>
+			<th scope="col">
+				Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				filterClass</td>
+			<td>
+				string</td>
+			<td>
+				&#39;apoi-filter&#39;</td>
+			<td>
+				Class of the filters html element. Script will find all those elements and create a filter menu from them. Check chapter 3. for details.</td>
+		</tr>
+		<tr>
+			<td>
+				start</td>
+			<td>
+				string</td>
+			<td>
+				&#39;point&#39;</td>
+			<td>
+				Available values: &#39;point&#39;, &#39;type&#39;, &#39;both&#39;. Choose what should be displayed when the map is loaded. In can be single point (for example your company location) or some points of interest. You can also show both.</td>
+		</tr>
+		<tr>
+			<td>
+				startTypes</td>
+			<td>
+				string</td>
+			<td>
+				&nbsp;</td>
+			<td>
+				If you have choosen &#39;type&#39; or &#39;both&#39; above in <strong>start</strong>, specify starting types here, for example &#39;restaurant,bar&#39;. All list of supported types you can find <a href="https://developers.google.com/places/web-service/supported_types" target="_blank">HERE.</a></td>
+		</tr>
+		<tr>
+			<td>
+				startPointIcon</td>
+			<td>
+				string</td>
+			<td>
+				&#39;../src/icons/icon-pin1-blue.png&#39;</td>
+			<td>
+				Url to the icon that will be used as center point if you choose &#39;point&#39; or &#39;both&#39; as <strong>start.</strong></td>
+		</tr>
+		<tr>
+			<td>
+				startTypesIcon</td>
+			<td>
+				string</td>
+			<td>
+				&#39;../src/icons/icon-pin1-red.png&#39;</td>
+			<td>
+				Url to the icon that will be used for Nearby Places pins if you choose &#39;type&#39; or &#39;both&#39; as <strong>start.</strong></td>
+		</tr>
+		<tr>
+			<td>
+				address</td>
+			<td>
+				string</td>
+			<td>
+				&nbsp;</td>
+			<td>
+				Address for map center. Example &quot;315 N Broadway, New York, USA&quot;. You can add this field or lat &amp; lng object in <strong>pyrmont</strong></td>
+		</tr>
+		<tr>
+			<td>
+				pyrmont</td>
+			<td>
+				object</td>
+			<td>
+				{lat: 52.520645, lng: 13.409779}</td>
+			<td>
+				Location object for map center. You can add this field or place&nbsp; address <strong>address.</strong></td>
+		</tr>
+		<tr>
+			<td>
+				radius</td>
+			<td>
+				number</td>
+			<td>
+				500</td>
+			<td>
+				Nearby Places search radius in meters.</td>
+		</tr>
+		<tr>
+			<td>
+				streetView</td>
+			<td>
+				boolean</td>
+			<td>
+				true</td>
+			<td>
+				Turns on or off the Street View option.</td>
+		</tr>
+		<tr>
+			<td>
+				switchStreetClass</td>
+			<td>
+				string</td>
+			<td>
+				&#39;apoi-switch-street&#39;</td>
+			<td>
+				If <strong>streetView</strong> is true, you can define the class of the button that will switch view to Street View.</td>
+		</tr>
+		<tr>
+			<td>
+				switchMapClass</td>
+			<td>
+				string</td>
+			<td>
+				&#39;apoi-switch-map&#39;</td>
+			<td>
+				If <strong>streetView</strong> is true, you can define the class of the button that will switch view to Map.</td>
+		</tr>
+		<tr>
+			<td>
+				autocomplete</td>
+			<td>
+				boolean</td>
+			<td>
+				true</td>
+			<td>
+				Turns on the input field where you can enter any address and display the route to the map center.</td>
+		</tr>
+		<tr>
+			<td>
+				autocompleteId</td>
+			<td>
+				string</td>
+			<td>
+				&#39;apoi-autocomplete&#39;</td>
+			<td>
+				If <strong>autocomplete </strong>is true, you can define the ID of the input element that will be used for address autocomplete.</td>
+		</tr>
+		<tr>
+			<td>
+				userLocation</td>
+			<td>
+				boolean</td>
+			<td>
+				true</td>
+			<td>
+				Turns on the link that allow you to get your current location and display the route to the map center.</td>
+		</tr>
+		<tr>
+			<td>
+				userLocationId</td>
+			<td>
+				string</td>
+			<td>
+				&#39;apoi-geolocation&#39;</td>
+			<td>
+				If <strong>userLocation </strong>is true, you can define the ID of the element that will be used for grabbing your location.</td>
+		</tr>
+		<tr>
+			<td>
+				routeMode</td>
+			<td>
+				boolean</td>
+			<td>
+				true</td>
+			<td>
+				Turns on the option to choose transport mode that will be used to display the route and travel hints.</td>
+		</tr>
+		<tr>
+			<td>
+				modeName</td>
+			<td>
+				string</td>
+			<td>
+				&#39;apoi-mode&#39;</td>
+			<td>
+				If <strong>routeMode </strong>is true, you can define the name of the radio buttons that will be used to choose transport mode. Available modes are: DRIVING, BICYCLING, TRANSIT, WALKING</td>
+		</tr>
+		<tr>
+			<td>
+				placesList</td>
+			<td>
+				boolean</td>
+			<td>
+				true</td>
+			<td>
+				Turns on the Nearby Places List panel, that shows basic information of the choosen category of places.</td>
+		</tr>
+		<tr>
+			<td>
+				placesListId</td>
+			<td>
+				string</td>
+			<td>
+				&#39;apoi-list&#39;</td>
+			<td>
+				If <strong>placesList </strong>is true, you can define the ID of the element that will be Nearby Places List container.</td>
+		</tr>
+		<tr>
+			<td>
+				placeDetails</td>
+			<td>
+				boolean</td>
+			<td>
+				true</td>
+			<td>
+				Turns on the Nearby Place Details panel, that shows detailed informations about the place, like contact info, street view, gallery, reviews and navigation hints.</td>
+		</tr>
+		<tr>
+			<td>
+				placeDetailsId</td>
+			<td>
+				string</td>
+			<td>
+				&#39;apoi-details-container&#39;</td>
+			<td>
+				If <strong>placeDetails </strong>is true, you can define the ID of the element that will be Nearby Place Details container.</td>
+		</tr>
+		<tr>
+			<td>
+				routeTime</td>
+			<td>
+				boolean</td>
+			<td>
+				true</td>
+			<td>
+				Turns on the small info about the time travel and the distance, when route is displayed.</td>
+		</tr>
+		<tr>
+			<td>
+				routeTimeId</td>
+			<td>
+				string</td>
+			<td>
+				&#39;apoi-route-time&#39;</td>
+			<td>
+				If <strong>routeTime </strong>is true, you can define the ID of the element that will hold the route time and distance info.</td>
+		</tr>
+		<tr>
+			<td>
+				route</td>
+			<td>
+				boolean</td>
+			<td>
+				true</td>
+			<td>
+				Turns on the route information panel.</td>
+		</tr>
+		<tr>
+			<td>
+				routeId</td>
+			<td>
+				string</td>
+			<td>
+				&#39;apoi-route&#39;</td>
+			<td>
+				If <strong>route </strong>is true, you can define the ID of the element that will hold the route info.</td>
+		</tr>
+		<tr>
+			<td>
+				multiple</td>
+			<td>
+				boolean</td>
+			<td>
+				true</td>
+			<td>
+				Turs on ability to select ad display multiple filters.</td>
+		</tr>
+		<tr>
+			<td>
+				iconSize</td>
+			<td>
+				string</td>
+			<td>
+				&#39;large&#39;</td>
+			<td>
+				Defines the size of the pin. Possible values: &#39;small&#39;, &#39;medium&#39;, &#39;large&#39;.</td>
+		</tr>
+		<tr>
+			<td>
+				iconType</td>
+			<td>
+				string</td>
+			<td>
+				&#39;pin1&#39;</td>
+			<td>
+				Defines the shape of the pin. Possible values: &#39;pin1&#39;,&#39;pin2, ... , &#39;pin14&#39;</td>
+		</tr>
+		<tr>
+			<td>
+				iconColor</td>
+			<td>
+				string</td>
+			<td>
+				&#39;blue&#39;</td>
+			<td>
+				Defines the color of th pin. Possible values: &#39;blue&#39;, &#39;gold&#39;, &#39;green&#39;, &#39;grey&#39;, &#39;navy&#39;, &#39;pink, &#39;purple&#39;, &#39;red&#39;, &#39;turquoise&#39;, &#39;yellow&#39;</td>
+		</tr>
+		<tr>
+			<td>
+				kmlFile</td>
+			<td>
+				string</td>
+			<td>
+				&nbsp;</td>
+			<td>
+				URL to the KML file, that will be added to the map. It must be file url, if you add a path it won&#39;t work. More about KML <a href="https://developers.google.com/kml/?hl=pl" target="_blank">here</a>.</td>
+		</tr>
+		<tr>
+			<td>
+				geoJOSNFile</td>
+			<td>
+				string</td>
+			<td>
+				&nbsp;</td>
+			<td>
+				URL or PATH to the geoJSON file, that will be added to the map. More about GeoJSON <a href="https://en.wikipedia.org/wiki/GeoJSON" target="_blank">here</a>.</td>
+		</tr>
+		<tr>
+			<td>
+				jsonFile</td>
+			<td>
+				string</td>
+			<td>
+				&nbsp;</td>
+			<td>
+				URL or PATH to the JSON file, that will be added to the map. More in &quot;Chapter 7. Custom Places from JSON&quot;.</td>
+		</tr>
+		<tr>
+			<td>
+				cluster</td>
+			<td>
+				boolean</td>
+			<td>
+				true</td>
+			<td>
+				Turns on the marker clustering. When there is more markers close to each other, they will be combined to one with the number.</td>
+		</tr>
+		<tr>
+			<td>
+				clusterIcon</td>
+			<td>
+				string</td>
+			<td>
+				&#39;../src/icons/pin-empty.png&#39;</td>
+			<td>
+				If <strong>cluster </strong>is true, you can define the icon used for cluster.</td>
+		</tr>
+		<tr>
+			<td>
+				zoom</td>
+			<td>
+				number</td>
+			<td>
+				16</td>
+			<td>
+				Starting map zoom.</td>
+		</tr>
+		<tr>
+			<td>
+				wheelScroll</td>
+			<td>
+				boolean</td>
+			<td>
+				false</td>
+			<td>
+				Turns the map zooming using mouse wheel.</td>
+		</tr>
+		<tr>
+			<td>
+				mapStyle</td>
+			<td>
+				JOSN</td>
+			<td>
+				&nbsp;</td>
+			<td>
+				You can add custom map style here. More info <a href="https://developers.google.com/maps/documentation/javascript/styling" target="_blank">here</a>. You can find many ready styles on <a href="https://snazzymaps.com" target="_blank">Snazzy Maps</a>.</td>
+		</tr>
+		<tr>
+			<td>
+				debug</td>
+			<td>
+				boolean</td>
+			<td>
+				false</td>
+			<td>
+				Turns on the debug informations displayed in the javascript console.</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+<h4 id="options_functions_52_functions">5.2 Functions</h4>
+<p>
+	Plugin comes with a few callback functions that fire after specific events. You can rewrite those functions. Take a look how to use them</p>
+<pre class="prettyprint lang-js linenums">
+$(&#39;#apoi-maps-container&#39;).awesomePOI({
+
+   onMapInit: function( map ) { console.log(&#39;onMapInit &#39; + map); },
+   onAfterSearch: function() { console.log(&#39;onAfterSearch&#39;); },
+   onAfterSearchJSON: function() { console.log(&#39;onAfterSearchJSON&#39;); },
+   onDetailsShow: function( place ) { console.log(&#39;onDetailsShow &#39; +  place); },
+   onAfterRoute: function( route ) { console.log(&#39;onAfterRoute &#39; + route); },
+   onGeolocation: function( geolocation ) { console.log(&#39;onGeolocation &#39; +  geolocation); },
+   onAutocomplete: function( loc ) { console.log(&#39;onAutocomplete &#39; + loc); },
+   onModeChange: function( mode ) { console.log(&#39;onModeChange &#39; + mode); },
+
+});</pre>
+<p>
+	&nbsp;</p>
+<p>
+	Here is callback functions overview:</p>
+<table border="1" cellpadding="1" cellspacing="1">
+	<tbody>
+		<tr>
+			<td>
+				Function name</td>
+			<td>
+				Parameter</td>
+			<td>
+				Description</td>
+		</tr>
+		<tr>
+			<td>
+				onMapInit</td>
+			<td>
+				Object: map</td>
+			<td>
+				Fires right after map initialization. Takes Google Map as a parameter.</td>
+		</tr>
+		<tr>
+			<td>
+				onAfterSearch</td>
+			<td>
+				&nbsp;</td>
+			<td>
+				Fires right after Nearby Places search.</td>
+		</tr>
+		<tr>
+			<td>
+				onAfterSearchJSON</td>
+			<td>
+				&nbsp;</td>
+			<td>
+				Fires right after Nearby Places search when you use JOSN file.</td>
+		</tr>
+		<tr>
+			<td>
+				onDetailsShow</td>
+			<td>
+				Object: place</td>
+			<td>
+				Fires right after displaying Place details. Takes Google Place as a parameter.</td>
+		</tr>
+		<tr>
+			<td>
+				onAfterRoute</td>
+			<td>
+				Object: route</td>
+			<td>
+				Fires right after displaying the route. Takes Google Route as a parameter.</td>
+		</tr>
+		<tr>
+			<td>
+				onGeolocation</td>
+			<td>
+				Object: geolocation</td>
+			<td>
+				Fires right after geolocation search. Takes Google Geolocation as a parameter.</td>
+		</tr>
+		<tr>
+			<td>
+				onAutocomplete</td>
+			<td>
+				Object: location</td>
+			<td>
+				Fires right after autocomplete search. Takes Google Place as a parameter.</td>
+		</tr>
+		<tr>
+			<td>
+				onModeChange</td>
+			<td>
+				String: mode</td>
+			<td>
+				Fires right after transport mode change. Takes mode name as a parameter. Available modes are: DRIVING, BICYCLING, TRANSIT, WALKING.</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+</section>
+<section id="custom_pins">
+	<div class="page-header"><h3>5. Custom Pins</h3><hr class="notop"></div>
+<p>
+	If you use Google Places Library by default pins are created automatically. You choose Pin shape, color and size, and icon is added by the plugin, using built in database.</p>
+<p>
+	If you use JOSN file, you have to add an icon in the JSON file (see Chapter 6. Custom places from JSON).</p>
+<p>
+	In both cases you can overwrite default settings and add your own icon to the every filter.</p>
+<p>
+	Example 1: Custom image</p>
+<pre class="prettyprint lang-html linenums">
+&lt;div class=&quot;apoi-filter&quot; data-types=&quot;restaurant&quot; data-icon-img=&quot;../src/icons/icon-pin7-blue.png&quot;&gt;
+      Restaurants
+&lt;/div&gt;</pre>
+<p>
+	There is a parameter that you need to fill: data-icon-img=&quot;&quot;.</p>
+<p>
+	&nbsp;</p>
+<p>
+	Example 2: Change only pin icon</p>
+<pre class="prettyprint lang-html linenums">
+&lt;div class=&quot;apoi-filter&quot; data-types=&quot;laundry&quot; data-icon-font=&quot;map-icon-point-of-interest&quot;&gt;
+      Laundry
+&lt;/div&gt;</pre>
+<p>
+	Here you have a paramater data-icon-font=&quot;&quot;. Pin shape and color will be taken from the plugin config, but icon on the pin will be changed accorging to your choice.</p>
+<p>
+	You can put here icons from &quot;Map Icons&quot; collection. All available icons you can find here: <a href="http://map-icons.com/" target="_blank">http://map-icons.com/</a></p>
+<p>
+	&nbsp;</p>
+</section>
+<section id="custom_places_form_json">
+	<div class="page-header"><h3>6. Custom Places form JSON</h3><hr class="notop"></div>
+<p>
+	Instead of Google Places you can use JOSN file to display places on the map. You can also combine those two sources and show some pins from Google Palces and some from JOSN file.</p>
+<p>
+	If you use custom JSON file, filter should have data-source=&quot;json&quot;:</p>
+<pre class="prettyprint lang-html linenums">
+&lt;div class=&quot;apoi-filter&quot; data-source=&quot;json&quot; data-types=&quot;restaurant,cafe,bar&quot;&gt;
+   Restaurants
+&lt;/div&gt;</pre>
+<p>
+	&nbsp;</p>
+<p>
+	JSON file must have correct structure:</p>
+<pre class="prettyprint lang-js linenums">
+{
+  &quot;types&quot;: {
+    &quot;type&quot;: [
+      {
+        &quot;name&quot;: &quot;category name (required)&quot;,
+        &quot;icon&quot;: &quot;url to category icon (required)&quot;,
+        &quot;items&quot;: {
+          &quot;item&quot;: [
+            {
+              &quot;lat&quot;: &quot;lat number (required)&quot;,
+              &quot;lng&quot;: &quot;lng number (required)&quot;,
+              &quot;name&quot;: &quot;Place name (required)&quot;,
+              &quot;formatted_address&quot;: &quot;Place address&quot;,
+              &quot;formatted_phone_number&quot;: &quot;Place phone number&quot;,
+              &quot;website&quot;: &quot;Place website&quot;,
+              &quot;photos&quot;: {
+                &quot;url&quot;: [
+                  &quot;Photo url&quot;,
+                  &quot;Photo url&quot;,
+                  &quot;Photo url&quot;
+                ]
+              },
+              &quot;reviews&quot;: [
+                {
+                  &quot;author_name&quot;: &quot;Author name&quot;,
+                  &quot;rating&quot;: &quot;Rating number&quot;,
+                  &quot;date&quot;: &quot;Rating date&quot;,
+                  &quot;text&quot;: &quot;Rating description&quot;
+                },
+                {
+                  &quot;author_name&quot;: &quot;Author name&quot;,
+                  &quot;rating&quot;: &quot;Rating number&quot;,
+                  &quot;date&quot;: &quot;Rating date&quot;,
+                  &quot;text&quot;: &quot;Rating description&quot;
+                }
+              ]
+            },
+            {
+              &quot;lat&quot;: &quot;lat number (required)&quot;,
+              &quot;lng&quot;: &quot;lng number (required)&quot;,
+              &quot;name&quot;: &quot;Place name (required)&quot;,
+              &quot;formatted_address&quot;: &quot;Place address&quot;,
+              &quot;formatted_phone_number&quot;: &quot;Place phone number&quot;,
+              &quot;website&quot;: &quot;Place website&quot;,
+              &quot;photos&quot;: {
+                &quot;url&quot;: [
+                  &quot;Photo url&quot;,
+                  &quot;Photo url&quot;,
+                  &quot;Photo url&quot;
+                ]
+              },
+              &quot;reviews&quot;: [
+                {
+                  &quot;author_name&quot;: &quot;Author name&quot;,
+                  &quot;rating&quot;: &quot;Rating number&quot;,
+                  &quot;date&quot;: &quot;Rating date&quot;,
+                  &quot;text&quot;: &quot;Rating description&quot;
+                },
+                {
+                  &quot;author_name&quot;: &quot;Author name&quot;,
+                  &quot;rating&quot;: &quot;Rating number&quot;,
+                  &quot;date&quot;: &quot;Rating date&quot;,
+                  &quot;text&quot;: &quot;Rating description&quot;
+                }
+              ]
+            },
+          ]
+        }
+      },
+      {
+        &quot;name&quot;: &quot;category name (required)&quot;,
+        &quot;icon&quot;: &quot;url to category icon (required)&quot;,
+        &quot;items&quot;: {
+          &quot;item&quot;: [
+            {
+              &quot;lat&quot;: &quot;lat number (required)&quot;,
+              &quot;lng&quot;: &quot;lng number (required)&quot;,
+              &quot;name&quot;: &quot;Place name (required)&quot;,
+              &quot;formatted_address&quot;: &quot;Place address&quot;,
+              &quot;formatted_phone_number&quot;: &quot;Place phone number&quot;,
+              &quot;website&quot;: &quot;Place website&quot;,
+              &quot;photos&quot;: {
+                &quot;url&quot;: [
+                  &quot;Photo url&quot;,
+                  &quot;Photo url&quot;,
+                  &quot;Photo url&quot;
+                ]
+              },
+              &quot;reviews&quot;: [
+                {
+                  &quot;author_name&quot;: &quot;Author name&quot;,
+                  &quot;rating&quot;: &quot;Rating number&quot;,
+                  &quot;date&quot;: &quot;Rating date&quot;,
+                  &quot;text&quot;: &quot;Rating description&quot;
+                },
+                {
+                  &quot;author_name&quot;: &quot;Author name&quot;,
+                  &quot;rating&quot;: &quot;Rating number&quot;,
+                  &quot;date&quot;: &quot;Rating date&quot;,
+                  &quot;text&quot;: &quot;Rating description&quot;
+                }
+              ]
+            },
+            {
+              &quot;lat&quot;: &quot;lat number (required)&quot;,
+              &quot;lng&quot;: &quot;lng number (required)&quot;,
+              &quot;name&quot;: &quot;Place name (required)&quot;,
+              &quot;formatted_address&quot;: &quot;Place address&quot;,
+              &quot;formatted_phone_number&quot;: &quot;Place phone number&quot;,
+              &quot;website&quot;: &quot;Place website&quot;,
+              &quot;photos&quot;: {
+                &quot;url&quot;: [
+                  &quot;Photo url&quot;,
+                  &quot;Photo url&quot;,
+                  &quot;Photo url&quot;
+                ]
+              },
+              &quot;reviews&quot;: [
+                {
+                  &quot;author_name&quot;: &quot;Author name&quot;,
+                  &quot;rating&quot;: &quot;Rating number&quot;,
+                  &quot;date&quot;: &quot;Rating date&quot;,
+                  &quot;text&quot;: &quot;Rating description&quot;
+                },
+                {
+                  &quot;author_name&quot;: &quot;Author name&quot;,
+                  &quot;rating&quot;: &quot;Rating number&quot;,
+                  &quot;date&quot;: &quot;Rating date&quot;,
+                  &quot;text&quot;: &quot;Rating description&quot;
+                }
+              ]
+            },
+          ]
+        }
+      },
+    ]
+  }
+}</pre>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+</section>
+<section id="kml_geojson">
+	<div class="page-header"><h3>7. KML & GeoJSON</h3><hr class="notop"></div>
+<p>
+	You can add additonal info, layers and shapes to your map with <a href="https://developers.google.com/kml/documentation/" target="blank">KML</a> or <a href="https://en.wikipedia.org/wiki/GeoJSON" target="blank">GeoJSON</a> files.</p>
+<p>
+	Add those files with the plugin call:</p>
+<pre class="prettyprint lang-js linenums">
+$(&#39;#apoi-maps-container&#39;).awesomePOI({
+   kmlFile: &#39;url to your KML file&#39;,
+   geoJOSNFile: &#39;url or path to your geoJOSN file&#39;,
+});</pre>
+<div class="alert alert-info">
+	Important: KML file should be added as url, if you add a path it won&#39;t work.</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="support_customization">
+	<div class="page-header"><h3>8. Support & Customization</h3><hr class="notop"></div>
+<p class="lead">
+	<strong>Once again thank you for purchasing my Plugin. Enjoy!</strong></p>
+<p>
+	If you have any questions that are beyond the scope of this help file, please feel free to submit a Support Ticket <a href="https://johnnychaos.freshdesk.com/support/home">here</a>.</p>
+<p>
+	You can also take a look at my <a href="http://themeforest.net/user/johnnychaos/portfolio?ref=johnnychaos" target="blank">themes and templates</a>.</p>
+<p>
+	Follow me on <a href="https://codecanyon.net/user/johnnychaos?ref=johnnychaos" target="blank">CodeCanyon</a> to be notified about my new products.</p>
+<p>
+	&nbsp;</p>
+<p>
+	Customization of this plugin is also available and it&#39;s based on my hourly rate &ndash; 30$/hour.</p>
+<p>
+	Send me an e-mail if you are interested.</p>
+</section>
+<section id="">
+	<div class="page-header"><h3></h3><hr class="notop"></div>
+</section>
+
+	</div>
+</body>
+</html>

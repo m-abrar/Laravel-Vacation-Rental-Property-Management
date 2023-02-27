@@ -1,0 +1,108 @@
+.colors-top-bar { /*--900*/
+background: #4A148C;
+border-top: 4px solid #8E24AA;/*600*/
+}
+.main-menu-colors {
+background-color: #9C27B0;/*--500*/
+}
+.main-menu-transparent {
+background-color: transparent;
+}
+.main-menu-colors > ul > li > a {
+
+background-color: #9C27B0;}
+.main-menu-colors > ul > li:hover > a,
+.main-menu-colors > ul > li > a:hover,
+.main-menu-colors > ul > li.active > a {
+background: #4A148C;
+}
+#search-form-transparent, .main-menu-transparent ul ul li a, .main-menu-colors ul ul li a {
+background: rgba(156,39,176, 0.9);
+}
+.main-menu-colors .submenu-button:before {
+border-top-color: #4A148C; 
+}
+.search-box {
+background: #9C27B0; 
+}
+#search-form-horizontal {
+background: #9C27B0; 
+}
+.search-index {
+background-color: #4A148C !important;
+border-radius: 0px;
+}
+.tab-button {
+   background: rgba(156,39,176, 0.75);
+}
+.nav-tabs > li > a {
+    color: #fff;
+}
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+    color: #fff;
+    background-color: #4A148C;
+}
+.nav-tabs>li>a:focus,
+.nav-tabs>li>a:hover {
+    color: #333;
+}
+
+.middle-down-arrow {
+background: url(../img/middle-down-arrow-05.png) no-repeat;
+}
+.breadcrumb a{
+color: #4A148C;
+}
+.input-group-addon {
+background-color: #e23d0b !important;
+}
+.pace .pace-progress {
+background: #9C27B0;
+}
+.caption-slide-up figcaption {
+background: #9C27B0;
+}
+
+.property-type-article-description {
+background-color: #eee ;
+}
+.property-type-article-price {
+background-color: #9C27B0 ;
+color:#fff;
+}
+.property-for-sale-info{
+background-color: #9C27B0;
+color:#fff;
+}
+.property-for-sale-info h3{
+background-color:#4A148C;
+}
+.info-cell span,
+.info-cell-large span,
+.info-cell .btn,
+.info-cell-large .btn {
+    background: #4A148C;
+    color:#fff;
+}
+
+.btn-oval{
+	background: #8E24AA;/*600*/
+}
+.btn-oval:hover{
+	background: #7B1FA2;/*700*/
+}
+}
+footer{
+	background: #9C27B0;
+}
+.footer_links ul li a{
+	color: #7B1FA2;
+}
+.footer_links ul li a:hover{
+	color: white;
+	}
+/* filter options */
+#filter-options a { background: #9C27B0; border: 1px solid #4A148C; color:#fff;}
+#filter-options a.active {background: #4A148C;}

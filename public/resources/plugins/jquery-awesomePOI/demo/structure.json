@@ -1,0 +1,138 @@
+{
+  "types": {
+    "type": [
+      {
+        "name": "category name (required)",
+        "icon": "url to category icon (required)",
+        "items": {
+          "item": [
+            {
+              "lat": "lat number (required)",
+              "lng": "lng number (required)",
+              "name": "Place name (required)",
+              "formatted_address": "Place address",
+              "formatted_phone_number": "Place phone number",
+              "website": "Place website",
+              "photos": {
+                "url": [
+                  "Photo url",
+                  "Photo url",
+                  "Photo url"
+                ]
+              },
+              "reviews": [
+                {
+                  "author_name": "Author name",
+                  "rating": "Rating number",
+                  "date": "Rating date",
+                  "text": "Rating description"
+                },
+                {
+                  "author_name": "Author name",
+                  "rating": "Rating number",
+                  "date": "Rating date",
+                  "text": "Rating description"
+                }
+              ]
+            },
+            {
+              "lat": "lat number (required)",
+              "lng": "lng number (required)",
+              "name": "Place name (required)",
+              "formatted_address": "Place address",
+              "formatted_phone_number": "Place phone number",
+              "website": "Place website",
+              "photos": {
+                "url": [
+                  "Photo url",
+                  "Photo url",
+                  "Photo url"
+                ]
+              },
+              "reviews": [
+                {
+                  "author_name": "Author name",
+                  "rating": "Rating number",
+                  "date": "Rating date",
+                  "text": "Rating description"
+                },
+                {
+                  "author_name": "Author name",
+                  "rating": "Rating number",
+                  "date": "Rating date",
+                  "text": "Rating description"
+                }
+              ]
+            },
+          ]
+        }
+      },
+      {
+        "name": "category name (required)",
+        "icon": "url to category icon (required)",
+        "items": {
+          "item": [
+            {
+              "lat": "lat number (required)",
+              "lng": "lng number (required)",
+              "name": "Place name (required)",
+              "formatted_address": "Place address",
+              "formatted_phone_number": "Place phone number",
+              "website": "Place website",
+              "photos": {
+                "url": [
+                  "Photo url",
+                  "Photo url",
+                  "Photo url"
+                ]
+              },
+              "reviews": [
+                {
+                  "author_name": "Author name",
+                  "rating": "Rating number",
+                  "date": "Rating date",
+                  "text": "Rating description"
+                },
+                {
+                  "author_name": "Author name",
+                  "rating": "Rating number",
+                  "date": "Rating date",
+                  "text": "Rating description"
+                }
+              ]
+            },
+            {
+              "lat": "lat number (required)",
+              "lng": "lng number (required)",
+              "name": "Place name (required)",
+              "formatted_address": "Place address",
+              "formatted_phone_number": "Place phone number",
+              "website": "Place website",
+              "photos": {
+                "url": [
+                  "Photo url",
+                  "Photo url",
+                  "Photo url"
+                ]
+              },
+              "reviews": [
+                {
+                  "author_name": "Author name",
+                  "rating": "Rating number",
+                  "date": "Rating date",
+                  "text": "Rating description"
+                },
+                {
+                  "author_name": "Author name",
+                  "rating": "Rating number",
+                  "date": "Rating date",
+                  "text": "Rating description"
+                }
+              ]
+            },
+          ]
+        }
+      },
+    ]
+  }
+}

@@ -1,0 +1,944 @@
+
+/* 
+    Created on : 2017-06-05, 09:58:01
+    Author     : Jan Skwara
+*/
+
+@import url("../src/map-icons-master/dist/css/map-icons.css");
+@import url("simplebar/simplebar.css");
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+h1,h2,h3,h4 {
+	font-family: 'Quicksand', sans-serif;
+	color: #333333;
+}
+
+a {
+  outline: 0;
+  text-decoration: none;
+}
+
+a:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+.apoi-map,
+.apoi-street-view {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.map-icon-label .apoi-map-icon {
+ 
+    color: #000;
+    text-align: center;
+    white-space: nowrap;	
+	background-repeat: no-repeat;
+	display: block;
+}
+
+.map-icon-label::after {
+	display: block;
+	content: '';
+	background-image: url('icons/icon-bg.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 100%;
+	height: 6px;
+	margin: auto;
+}
+
+.apoi-map-icon.apoi-size-large {
+	width: 60px;
+	height: 60px;
+	background-size: 60px 60px;
+	line-height: 60px;
+	font-size: 23px;
+}
+
+.apoi-map-icon.apoi-size-medium {
+	width: 48px;
+	height: 48px;
+	background-size: 48px 48px;
+	line-height: 48px;
+	font-size: 18px;
+}
+
+.apoi-map-icon.apoi-size-small {
+	width: 36px;
+	height: 36px;
+	background-size: 36px 36px;
+	line-height: 36px;
+	font-size: 14px;
+}
+
+.apoi-map-icon.apoi-color-turquoise {
+	color: #5a5f66;
+}
+
+.apoi-map-icon.apoi-type-pin1.apoi-color-turquoise {
+	background-image: url('icons/icon-pin1-turquoise.png');
+}
+
+.apoi-map-icon.apoi-type-pin2.apoi-color-turquoise {
+	background-image: url('icons/icon-pin2-turquoise.png');
+}
+
+.apoi-map-icon.apoi-type-pin3.apoi-color-turquoise {
+	background-image: url('icons/icon-pin3-turquoise.png');
+}
+
+.apoi-map-icon.apoi-type-pin4.apoi-color-turquoise {
+	background-image: url('icons/icon-pin4-turquoise.png');
+}
+
+.apoi-map-icon.apoi-type-pin5.apoi-color-turquoise {
+	background-image: url('icons/icon-pin5-turquoise.png');
+}
+
+.apoi-map-icon.apoi-type-pin6.apoi-color-turquoise {
+	background-image: url('icons/icon-pin6-turquoise.png');
+}
+
+.apoi-map-icon.apoi-type-pin7.apoi-color-turquoise {
+	background-image: url('icons/icon-pin7-turquoise.png');
+}
+
+.apoi-map-icon.apoi-type-pin8.apoi-color-turquoise {
+	background-image: url('icons/icon-pin8-turquoise.png');
+}
+
+.apoi-map-icon.apoi-type-pin9.apoi-color-turquoise {
+	background-image: url('icons/icon-pin9-turquoise.png');
+}
+
+.apoi-map-icon.apoi-type-pin10.apoi-color-turquoise {
+	background-image: url('icons/icon-pin10-turquoise.png');
+}
+
+.apoi-map-icon.apoi-type-pin11.apoi-color-turquoise {
+	background-image: url('icons/icon-pin11-turquoise.png');
+}
+
+.apoi-map-icon.apoi-type-pin12.apoi-color-turquoise {
+	background-image: url('icons/icon-pin12-turquoise.png');
+}
+
+.apoi-map-icon.apoi-type-pin13.apoi-color-turquoise {
+	background-image: url('icons/icon-pin13-turquoise.png');
+}
+
+.apoi-map-icon.apoi-type-pin14.apoi-color-turquoise {
+	background-image: url('icons/icon-pin14-turquoise.png');
+}
+
+.apoi-map-icon.apoi-color-blue {
+	color: #5a5f66;
+}
+
+.apoi-map-icon.apoi-type-pin1.apoi-color-blue {
+	background-image: url('icons/icon-pin1-blue.png');
+}
+
+.apoi-map-icon.apoi-type-pin2.apoi-color-blue {
+	background-image: url('icons/icon-pin2-blue.png');
+}
+
+.apoi-map-icon.apoi-type-pin3.apoi-color-blue {
+	background-image: url('icons/icon-pin3-blue.png');
+}
+
+.apoi-map-icon.apoi-type-pin4.apoi-color-blue {
+	background-image: url('icons/icon-pin4-blue.png');
+}
+
+.apoi-map-icon.apoi-type-pin5.apoi-color-blue {
+	background-image: url('icons/icon-pin5-blue.png');
+}
+
+.apoi-map-icon.apoi-type-pin6.apoi-color-blue {
+	background-image: url('icons/icon-pin6-blue.png');
+}
+
+.apoi-map-icon.apoi-type-pin7.apoi-color-blue {
+	background-image: url('icons/icon-pin7-blue.png');
+}
+
+.apoi-map-icon.apoi-type-pin8.apoi-color-blue {
+	background-image: url('icons/icon-pin8-blue.png');
+}
+
+.apoi-map-icon.apoi-type-pin9.apoi-color-blue {
+	background-image: url('icons/icon-pin9-blue.png');
+}
+
+.apoi-map-icon.apoi-type-pin10.apoi-color-blue {
+	background-image: url('icons/icon-pin10-blue.png');
+}
+
+.apoi-map-icon.apoi-type-pin11.apoi-color-blue {
+	background-image: url('icons/icon-pin11-blue.png');
+}
+
+.apoi-map-icon.apoi-type-pin12.apoi-color-blue {
+	background-image: url('icons/icon-pin12-blue.png');
+}
+
+.apoi-map-icon.apoi-type-pin13.apoi-color-blue {
+	background-image: url('icons/icon-pin13-blue.png');
+}
+
+.apoi-map-icon.apoi-type-pin14.apoi-color-blue {
+	background-image: url('icons/icon-pin14-blue.png');
+}
+
+.apoi-map-icon.apoi-color-green {
+	color: #5a5f66;
+}
+
+.apoi-map-icon.apoi-type-pin1.apoi-color-green {
+	background-image: url('icons/icon-pin1-green.png');
+}
+
+.apoi-map-icon.apoi-type-pin2.apoi-color-green {
+	background-image: url('icons/icon-pin2-green.png');
+}
+
+.apoi-map-icon.apoi-type-pin3.apoi-color-green {
+	background-image: url('icons/icon-pin3-green.png');
+}
+
+.apoi-map-icon.apoi-type-pin4.apoi-color-green {
+	background-image: url('icons/icon-pin4-green.png');
+}
+
+.apoi-map-icon.apoi-type-pin5.apoi-color-green {
+	background-image: url('icons/icon-pin5-green.png');
+}
+
+.apoi-map-icon.apoi-type-pin6.apoi-color-green {
+	background-image: url('icons/icon-pin6-green.png');
+}
+
+.apoi-map-icon.apoi-type-pin7.apoi-color-green {
+	background-image: url('icons/icon-pin7-green.png');
+}
+
+.apoi-map-icon.apoi-type-pin8.apoi-color-green {
+	background-image: url('icons/icon-pin8-green.png');
+}
+
+.apoi-map-icon.apoi-type-pin9.apoi-color-green {
+	background-image: url('icons/icon-pin9-green.png');
+}
+
+.apoi-map-icon.apoi-type-pin10.apoi-color-green {
+	background-image: url('icons/icon-pin10-green.png');
+}
+
+.apoi-map-icon.apoi-type-pin11.apoi-color-green {
+	background-image: url('icons/icon-pin11-green.png');
+}
+
+.apoi-map-icon.apoi-type-pin12.apoi-color-green {
+	background-image: url('icons/icon-pin12-green.png');
+}
+
+.apoi-map-icon.apoi-type-pin13.apoi-color-green {
+	background-image: url('icons/icon-pin13-green.png');
+}
+
+.apoi-map-icon.apoi-type-pin14.apoi-color-green {
+	background-image: url('icons/icon-pin14-green.png');
+}
+
+.apoi-map-icon.apoi-color-red {
+	color: #5a5f66;
+}
+
+.apoi-map-icon.apoi-type-pin1.apoi-color-red {
+	background-image: url('icons/icon-pin1-red.png');
+}
+
+.apoi-map-icon.apoi-type-pin2.apoi-color-red {
+	background-image: url('icons/icon-pin2-red.png');
+}
+
+.apoi-map-icon.apoi-type-pin3.apoi-color-red {
+	background-image: url('icons/icon-pin3-red.png');
+}
+
+.apoi-map-icon.apoi-type-pin4.apoi-color-red {
+	background-image: url('icons/icon-pin4-red.png');
+}
+
+.apoi-map-icon.apoi-type-pin5.apoi-color-red {
+	background-image: url('icons/icon-pin5-red.png');
+}
+
+.apoi-map-icon.apoi-type-pin6.apoi-color-red {
+	background-image: url('icons/icon-pin6-red.png');
+}
+
+.apoi-map-icon.apoi-type-pin7.apoi-color-red {
+	background-image: url('icons/icon-pin7-red.png');
+}
+
+.apoi-map-icon.apoi-type-pin8.apoi-color-red {
+	background-image: url('icons/icon-pin8-red.png');
+}
+
+.apoi-map-icon.apoi-type-pin9.apoi-color-red {
+	background-image: url('icons/icon-pin9-red.png');
+}
+
+.apoi-map-icon.apoi-type-pin10.apoi-color-red {
+	background-image: url('icons/icon-pin10-red.png');
+}
+
+.apoi-map-icon.apoi-type-pin11.apoi-color-red {
+	background-image: url('icons/icon-pin11-red.png');
+}
+
+.apoi-map-icon.apoi-type-pin12.apoi-color-red {
+	background-image: url('icons/icon-pin12-red.png');
+}
+
+.apoi-map-icon.apoi-type-pin13.apoi-color-red {
+	background-image: url('icons/icon-pin13-red.png');
+}
+
+.apoi-map-icon.apoi-type-pin14.apoi-color-red {
+	background-image: url('icons/icon-pin14-red.png');
+}
+
+.apoi-map-icon.apoi-color-purple {
+	color: #5a5f66;
+}
+
+.apoi-map-icon.apoi-type-pin1.apoi-color-purple {
+	background-image: url('icons/icon-pin1-purple.png');
+}
+
+.apoi-map-icon.apoi-type-pin2.apoi-color-purple {
+	background-image: url('icons/icon-pin2-purple.png');
+}
+
+.apoi-map-icon.apoi-type-pin3.apoi-color-purple {
+	background-image: url('icons/icon-pin3-purple.png');
+}
+
+.apoi-map-icon.apoi-type-pin4.apoi-color-purple {
+	background-image: url('icons/icon-pin4-purple.png');
+}
+
+.apoi-map-icon.apoi-type-pin5.apoi-color-purple {
+	background-image: url('icons/icon-pin5-purple.png');
+}
+
+.apoi-map-icon.apoi-type-pin6.apoi-color-purple {
+	background-image: url('icons/icon-pin6-purple.png');
+}
+
+.apoi-map-icon.apoi-type-pin7.apoi-color-purple {
+	background-image: url('icons/icon-pin7-purple.png');
+}
+
+.apoi-map-icon.apoi-type-pin8.apoi-color-purple {
+	background-image: url('icons/icon-pin8-purple.png');
+}
+
+.apoi-map-icon.apoi-type-pin9.apoi-color-purple {
+	background-image: url('icons/icon-pin9-purple.png');
+}
+
+.apoi-map-icon.apoi-type-pin10.apoi-color-purple {
+	background-image: url('icons/icon-pin10-purple.png');
+}
+
+.apoi-map-icon.apoi-type-pin11.apoi-color-purple {
+	background-image: url('icons/icon-pin11-purple.png');
+}
+
+.apoi-map-icon.apoi-type-pin12.apoi-color-purple {
+	background-image: url('icons/icon-pin12-purple.png');
+}
+
+.apoi-map-icon.apoi-type-pin13.apoi-color-purple {
+	background-image: url('icons/icon-pin13-purple.png');
+}
+
+.apoi-map-icon.apoi-type-pin14.apoi-color-purple {
+	background-image: url('icons/icon-pin14-purple.png');
+}
+
+.apoi-map-icon.apoi-color-yellow {
+	color: #5a5f66;
+}
+
+.apoi-map-icon.apoi-type-pin1.apoi-color-yellow {
+	background-image: url('icons/icon-pin1-yellow.png');
+}
+
+.apoi-map-icon.apoi-type-pin2.apoi-color-yellow {
+	background-image: url('icons/icon-pin2-yellow.png');
+}
+
+.apoi-map-icon.apoi-type-pin3.apoi-color-yellow {
+	background-image: url('icons/icon-pin3-yellow.png');
+}
+
+.apoi-map-icon.apoi-type-pin4.apoi-color-yellow {
+	background-image: url('icons/icon-pin4-yellow.png');
+}
+
+.apoi-map-icon.apoi-type-pin5.apoi-color-yellow {
+	background-image: url('icons/icon-pin5-yellow.png');
+}
+
+.apoi-map-icon.apoi-type-pin6.apoi-color-yellow {
+	background-image: url('icons/icon-pin6-yellow.png');
+}
+
+.apoi-map-icon.apoi-type-pin7.apoi-color-yellow {
+	background-image: url('icons/icon-pin7-yellow.png');
+}
+
+.apoi-map-icon.apoi-type-pin8.apoi-color-yellow {
+	background-image: url('icons/icon-pin8-yellow.png');
+}
+
+.apoi-map-icon.apoi-type-pin9.apoi-color-yellow {
+	background-image: url('icons/icon-pin9-yellow.png');
+}
+
+.apoi-map-icon.apoi-type-pin10.apoi-color-yellow {
+	background-image: url('icons/icon-pin10-yellow.png');
+}
+
+.apoi-map-icon.apoi-type-pin11.apoi-color-yellow {
+	background-image: url('icons/icon-pin11-yellow.png');
+}
+
+.apoi-map-icon.apoi-type-pin12.apoi-color-yellow {
+	background-image: url('icons/icon-pin12-yellow.png');
+}
+
+.apoi-map-icon.apoi-type-pin13.apoi-color-yellow {
+	background-image: url('icons/icon-pin13-yellow.png');
+}
+
+.apoi-map-icon.apoi-type-pin14.apoi-color-yellow {
+	background-image: url('icons/icon-pin14-yellow.png');
+}
+
+.apoi-map-icon.apoi-color-pink {
+	color: #5a5f66;
+}
+
+.apoi-map-icon.apoi-type-pin1.apoi-color-pink {
+	background-image: url('icons/icon-pin1-pink.png');
+}
+
+.apoi-map-icon.apoi-type-pin2.apoi-color-pink {
+	background-image: url('icons/icon-pin2-pink.png');
+}
+
+.apoi-map-icon.apoi-type-pin3.apoi-color-pink {
+	background-image: url('icons/icon-pin3-pink.png');
+}
+
+.apoi-map-icon.apoi-type-pin4.apoi-color-pink {
+	background-image: url('icons/icon-pin4-pink.png');
+}
+
+.apoi-map-icon.apoi-type-pin5.apoi-color-pink {
+	background-image: url('icons/icon-pin5-pink.png');
+}
+
+.apoi-map-icon.apoi-type-pin6.apoi-color-pink {
+	background-image: url('icons/icon-pin6-pink.png');
+}
+
+.apoi-map-icon.apoi-type-pin7.apoi-color-pink {
+	background-image: url('icons/icon-pin7-pink.png');
+}
+
+.apoi-map-icon.apoi-type-pin8.apoi-color-pink {
+	background-image: url('icons/icon-pin8-pink.png');
+}
+
+.apoi-map-icon.apoi-type-pin9.apoi-color-pink {
+	background-image: url('icons/icon-pin9-pink.png');
+}
+
+.apoi-map-icon.apoi-type-pin10.apoi-color-pink {
+	background-image: url('icons/icon-pin10-pink.png');
+}
+
+.apoi-map-icon.apoi-type-pin11.apoi-color-pink {
+	background-image: url('icons/icon-pin11-pink.png');
+}
+
+.apoi-map-icon.apoi-type-pin12.apoi-color-pink {
+	background-image: url('icons/icon-pin12-pink.png');
+}
+
+.apoi-map-icon.apoi-type-pin13.apoi-color-pink {
+	background-image: url('icons/icon-pin13-pink.png');
+}
+
+.apoi-map-icon.apoi-type-pin14.apoi-color-pink {
+	background-image: url('icons/icon-pin14-pink.png');
+}
+
+.apoi-map-icon.apoi-color-gold {
+	color: #5a5f66;
+}
+
+.apoi-map-icon.apoi-type-pin1.apoi-color-gold {
+	background-image: url('icons/icon-pin1-gold.png');
+}
+
+.apoi-map-icon.apoi-type-pin2.apoi-color-gold {
+	background-image: url('icons/icon-pin2-gold.png');
+}
+
+.apoi-map-icon.apoi-type-pin3.apoi-color-gold {
+	background-image: url('icons/icon-pin3-gold.png');
+}
+
+.apoi-map-icon.apoi-type-pin4.apoi-color-gold {
+	background-image: url('icons/icon-pin4-gold.png');
+}
+
+.apoi-map-icon.apoi-type-pin5.apoi-color-gold {
+	background-image: url('icons/icon-pin5-gold.png');
+}
+
+.apoi-map-icon.apoi-type-pin6.apoi-color-gold {
+	background-image: url('icons/icon-pin6-gold.png');
+}
+
+.apoi-map-icon.apoi-type-pin7.apoi-color-gold {
+	background-image: url('icons/icon-pin7-gold.png');
+}
+
+.apoi-map-icon.apoi-type-pin8.apoi-color-gold {
+	background-image: url('icons/icon-pin8-gold.png');
+}
+
+.apoi-map-icon.apoi-type-pin9.apoi-color-gold {
+	background-image: url('icons/icon-pin9-gold.png');
+}
+
+.apoi-map-icon.apoi-type-pin10.apoi-color-gold {
+	background-image: url('icons/icon-pin10-gold.png');
+}
+
+.apoi-map-icon.apoi-type-pin11.apoi-color-gold {
+	background-image: url('icons/icon-pin11-gold.png');
+}
+
+.apoi-map-icon.apoi-type-pin12.apoi-color-gold {
+	background-image: url('icons/icon-pin12-gold.png');
+}
+
+.apoi-map-icon.apoi-type-pin13.apoi-color-gold {
+	background-image: url('icons/icon-pin13-gold.png');
+}
+
+.apoi-map-icon.apoi-type-pin14.apoi-color-gold {
+	background-image: url('icons/icon-pin14-gold.png');
+}
+
+.apoi-map-icon.apoi-color-grey {
+	color: #5a5f66;
+}
+
+.apoi-map-icon.apoi-type-pin1.apoi-color-grey {
+	background-image: url('icons/icon-pin1-grey.png');
+}
+
+.apoi-map-icon.apoi-type-pin2.apoi-color-grey {
+	background-image: url('icons/icon-pin2-grey.png');
+}
+
+.apoi-map-icon.apoi-type-pin3.apoi-color-grey {
+	background-image: url('icons/icon-pin3-grey.png');
+}
+
+.apoi-map-icon.apoi-type-pin4.apoi-color-grey {
+	background-image: url('icons/icon-pin4-grey.png');
+}
+
+.apoi-map-icon.apoi-type-pin5.apoi-color-grey {
+	background-image: url('icons/icon-pin5-grey.png');
+}
+
+.apoi-map-icon.apoi-type-pin6.apoi-color-grey {
+	background-image: url('icons/icon-pin6-grey.png');
+}
+
+.apoi-map-icon.apoi-type-pin7.apoi-color-grey {
+	background-image: url('icons/icon-pin7-grey.png');
+}
+
+.apoi-map-icon.apoi-type-pin8.apoi-color-grey {
+	background-image: url('icons/icon-pin8-grey.png');
+}
+
+.apoi-map-icon.apoi-type-pin9.apoi-color-grey {
+	background-image: url('icons/icon-pin9-grey.png');
+}
+
+.apoi-map-icon.apoi-type-pin10.apoi-color-grey {
+	background-image: url('icons/icon-pin10-grey.png');
+}
+
+.apoi-map-icon.apoi-type-pin11.apoi-color-grey {
+	background-image: url('icons/icon-pin11-grey.png');
+}
+
+.apoi-map-icon.apoi-type-pin12.apoi-color-grey {
+	background-image: url('icons/icon-pin12-grey.png');
+}
+
+.apoi-map-icon.apoi-type-pin13.apoi-color-grey {
+	background-image: url('icons/icon-pin13-grey.png');
+}
+
+.apoi-map-icon.apoi-type-pin14.apoi-color-grey {
+	background-image: url('icons/icon-pin14-grey.png');
+}
+
+.apoi-map-icon.apoi-color-navy {
+	color: #5a5f66;
+}
+
+.apoi-map-icon.apoi-type-pin1.apoi-color-navy {
+	background-image: url('icons/icon-pin1-navy.png');
+}
+
+.apoi-map-icon.apoi-type-pin2.apoi-color-navy {
+	background-image: url('icons/icon-pin2-navy.png');
+}
+
+.apoi-map-icon.apoi-type-pin3.apoi-color-navy {
+	background-image: url('icons/icon-pin3-navy.png');
+}
+
+.apoi-map-icon.apoi-type-pin4.apoi-color-navy {
+	background-image: url('icons/icon-pin4-navy.png');
+}
+
+.apoi-map-icon.apoi-type-pin5.apoi-color-navy {
+	background-image: url('icons/icon-pin5-navy.png');
+}
+
+.apoi-map-icon.apoi-type-pin6.apoi-color-navy {
+	background-image: url('icons/icon-pin6-navy.png');
+}
+
+.apoi-map-icon.apoi-type-pin7.apoi-color-navy {
+	background-image: url('icons/icon-pin7-navy.png');
+}
+
+.apoi-map-icon.apoi-type-pin8.apoi-color-navy {
+	background-image: url('icons/icon-pin8-navy.png');
+}
+
+.apoi-map-icon.apoi-type-pin9.apoi-color-navy {
+	background-image: url('icons/icon-pin9-navy.png');
+}
+
+.apoi-map-icon.apoi-type-pin10.apoi-color-navy {
+	background-image: url('icons/icon-pin10-navy.png');
+}
+
+.apoi-map-icon.apoi-type-pin11.apoi-color-navy {
+	background-image: url('icons/icon-pin11-navy.png');
+}
+
+.apoi-map-icon.apoi-type-pin12.apoi-color-navy {
+	background-image: url('icons/icon-pin12-navy.png');
+}
+
+.apoi-map-icon.apoi-type-pin13.apoi-color-navy {
+	background-image: url('icons/icon-pin13-navy.png');
+}
+
+.apoi-map-icon.apoi-type-pin14.apoi-color-navy {
+	background-image: url('icons/icon-pin14-navy.png');
+}
+
+
+
+
+
+.apoi-map-icon.apoi-type-pin1.apoi-size-large {
+	line-height: 48px;
+}
+
+.apoi-map-icon.apoi-type-pin1.apoi-size-medium {
+	line-height: 39px;
+}
+
+.apoi-map-icon.apoi-type-pin1.apoi-size-small {
+	line-height: 29px;
+}
+
+.apoi-map-icon.apoi-type-pin2.apoi-size-large {
+	line-height: 48px;
+}
+
+.apoi-map-icon.apoi-type-pin2.apoi-size-medium {
+	line-height: 39px;
+}
+
+.apoi-map-icon.apoi-type-pin2.apoi-size-small {
+	line-height: 29px;
+}
+
+.apoi-map-icon.apoi-type-pin3.apoi-size-large {
+	line-height: 37px;
+}
+
+.apoi-map-icon.apoi-type-pin3.apoi-size-medium {
+	line-height: 31px;
+}
+
+.apoi-map-icon.apoi-type-pin3.apoi-size-small {
+	line-height: 23px;
+}
+
+.apoi-map-icon.apoi-type-pin4.apoi-size-large {
+	line-height: 44px;
+}
+
+.apoi-map-icon.apoi-type-pin4.apoi-size-medium {
+	line-height: 37px;
+}
+
+.apoi-map-icon.apoi-type-pin4.apoi-size-small {
+	line-height: 27px;
+}
+
+.apoi-map-icon.apoi-type-pin5.apoi-size-large {
+	line-height: 44px;
+}
+
+.apoi-map-icon.apoi-type-pin5.apoi-size-medium {
+	line-height: 37px;
+}
+
+.apoi-map-icon.apoi-type-pin5.apoi-size-small {
+	line-height: 27px;
+}
+
+.apoi-map-icon.apoi-type-pin6.apoi-size-large {
+	line-height: 46px;
+}
+
+.apoi-map-icon.apoi-type-pin6.apoi-size-medium {
+	line-height: 38px;
+}
+
+.apoi-map-icon.apoi-type-pin6.apoi-size-small {
+	line-height: 28px;
+}
+
+.apoi-map-icon.apoi-type-pin7.apoi-size-large {
+	line-height: 60px;
+}
+
+.apoi-map-icon.apoi-type-pin7.apoi-size-medium {
+	line-height: 48px;
+}
+
+.apoi-map-icon.apoi-type-pin7.apoi-size-small {
+	line-height: 36px;
+}
+
+.apoi-map-icon.apoi-type-pin8.apoi-size-large {
+	line-height: 60px;
+}
+
+.apoi-map-icon.apoi-type-pin8.apoi-size-medium {
+	line-height: 48px;
+}
+
+.apoi-map-icon.apoi-type-pin8.apoi-size-small {
+	line-height: 36px;
+}
+
+.apoi-map-icon.apoi-type-pin9.apoi-size-large {
+	line-height: 51px;
+}
+
+.apoi-map-icon.apoi-type-pin9.apoi-size-medium {
+	line-height: 43px;
+}
+
+.apoi-map-icon.apoi-type-pin9.apoi-size-small {
+	line-height: 31px;
+}
+
+.apoi-map-icon.apoi-type-pin10.apoi-size-large {
+	line-height: 56px;
+}
+
+.apoi-map-icon.apoi-type-pin10.apoi-size-medium {
+	line-height: 46px;
+}
+
+.apoi-map-icon.apoi-type-pin10.apoi-size-small {
+	line-height: 34px;
+}
+
+.apoi-map-icon.apoi-type-pin11.apoi-size-large {
+	line-height: 58px;
+}
+
+.apoi-map-icon.apoi-type-pin11.apoi-size-medium {
+	line-height: 49px;
+}
+
+.apoi-map-icon.apoi-type-pin11.apoi-size-small {
+	line-height: 36px;
+}
+
+.apoi-map-icon.apoi-type-pin12.apoi-size-large {
+	line-height: 60px;
+}
+
+.apoi-map-icon.apoi-type-pin12.apoi-size-medium {
+	line-height: 48px;
+}
+
+.apoi-map-icon.apoi-type-pin12.apoi-size-small {
+	line-height: 36px;
+}
+
+.apoi-map-icon.apoi-type-pin13.apoi-size-large {
+	line-height: 43px;
+}
+
+.apoi-map-icon.apoi-type-pin13.apoi-size-medium {
+	line-height: 36px;
+}
+
+.apoi-map-icon.apoi-type-pin13.apoi-size-small {
+	line-height: 26px;
+}
+
+.apoi-map-icon.apoi-type-pin14.apoi-size-large {
+	line-height: 55px;
+}
+
+.apoi-map-icon.apoi-type-pin14.apoi-size-medium {
+	line-height: 46px;
+}
+
+.apoi-map-icon.apoi-type-pin14.apoi-size-small {
+	line-height: 34px;
+}
+
+
+
+
+.apoi-short-details {
+	display: block;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.infobox-photo {
+    float: left;
+    width: 100px;
+    min-height: 70px;
+}
+
+.infobox-text {
+    float: left;
+    padding: 0 10px 0 10px;
+}
+
+#apoi-switch-map {
+    display: none;
+}
+
+#apoi-maps-container {
+    position: relative;
+    float: left; 
+    width: 600px; 
+    height: 600px;
+}
+
+.apoi-street-view {
+    left: -100%;
+    z-index: 10;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition:    all .5s ease-in-out;
+    -ms-transition:     all .5s ease-in-out;
+    -o-transition:      all .5s ease-in-out;
+    transition:         all .5s ease-in-out;
+}
+
+.apoi-place-street-view {
+    width: 300px;
+    height: 200px;
+
+}
+        
+@media only screen and (min-width: 992px)  and (max-width: 1199px) {
+   .apoi-container {
+        width: 33%;  
+    }
+
+    #apoi-maps-container {
+        width: 67%; 
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .apoi-container {
+        width: 43%;  
+    }
+
+    #apoi-maps-container {
+        width: 57%; 
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .apoi-container {
+        width: 100%; 
+        height: auto;
+    }
+
+    #apoi-maps-container {
+        width: 100%; 
+    }
+}

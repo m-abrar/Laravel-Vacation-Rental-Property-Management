@@ -1,0 +1,165 @@
+/* Home Page Carousel */
+
+header.carousel {
+    height: 50%;
+}
+header.carousel .item,
+header.carousel .item.active,
+header.carousel .carousel-inner {
+    height: 100%;
+}
+header.carousel .fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+/* Horizontal Search Box on Index */
+
+.search-box {
+    padding: 10px 30px;
+    -webkit-border-top-left-radius: 15px;
+    -webkit-border-bottom-right-radius: 15px;
+    -moz-border-radius-topleft: 15px;
+    -moz-border-radius-bottomright: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.featured-items-section {
+
+    padding: 30px 0 50px 0;
+
+    background: #ccc;
+
+    /*box-shadow: inset 10px 0px 10px -7px rgba(0, 0, 0, 0.5), inset -10px 0px 10px -7px rgba(0, 0, 0, 0.5);*/
+
+}
+
+.featured-item > .labels {
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    z-index: 3;
+}
+.featured-item > .labels > .label-rent {
+    position: relative;
+    width: 80px;
+    height: 62px;
+    background: url(../img/label-rent.png) no-repeat;
+}
+.featured-item > .labels > .label-new {
+    position: relative;
+    width: 80px;
+    height: 62px;
+    background: url(../img/label-new.png) no-repeat;
+}
+.featured-item > .labels > .label-sale {
+    position: relative;
+    width: 80px;
+    height: 62px;
+    background: url(../img/label-sale.png) no-repeat;
+}
+
+.featured-item > .category {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    z-index: 3;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.featured-item-header {
+    padding: 10px;
+    margin: 0px;
+    background: rgba(0, 0, 0) transparent;
+    background: rgba(0, 0, 0, 0.6);
+    /* For IE 5.5 - 7*/
+    
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+    font-size: 14px;
+    color: #eeeeee;
+    position: relative;
+    top: 20px;
+    z-index: 100;
+    color: #eeeeee;
+    position: relative;
+    top: 20px;
+}
+@media(max-width:330px) {
+    .featured-item-header {
+        font-size: 10px;
+    }
+}
+.caption-slide-up figure {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+.caption-slide-up img {
+    max-width: 100%;
+    display: block;
+    position: relative;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.caption-slide-up figcaption {
+    position: absolute;
+    padding: 10px;
+    color: #ededed;
+    height: 100px;
+    width: 100%;
+    top: auto;
+    bottom: 0;
+    opacity: 0;
+    z-index: 2;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    transform: translateY(100px);
+    -webkit-transform: translateY(100px);
+    -moz-transform: translateY(100px);
+    -ms-transform: translateY(100px);
+    -o-transform: translateY(100px);
+}
+.caption-slide-up figcaption h3 {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    text-align: left;
+}
+.caption-slide-up figcaption a {
+    position: absolute;
+    bottom: 1px;
+    right: 15px;
+}
+.caption-slide-up figure:hover figcaption {
+    opacity: 1;
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+}
+.caption-slide-up figure:hover img {
+    opacity: 1;
+    transform: translateY(-40px);
+    -webkit-transform: translateY(-40px);
+    -moz-transform: translateY(-40px);
+    -ms-transform: translateY(-40px);
+    -o-transform: translateY(-40px);
+}
+.featured-items figcaption span:before {
+    content: ' ';
+}

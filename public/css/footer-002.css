@@ -1,0 +1,103 @@
+#myFooterTwo {
+    background-color: #3c3d41;
+    color: white;
+    padding-top: 30px;
+}
+
+#myFooterTwo .footer-copyright {
+    background-color: #333333;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+#myFooterTwo .row {
+    margin-bottom: 60px;
+}
+
+#myFooterTwo .navbar-brand {
+    margin-top: 45px;
+    height: 65px;
+}
+
+#myFooterTwo .footer-copyright p {
+    margin: 10px;
+    color: #ccc;
+}
+
+#myFooterTwo ul {
+    list-style-type: none;
+    padding-left: 0;
+    line-height: 1.7;
+}
+
+#myFooterTwo h5 {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+#myFooterTwo h2 a{
+    font-size: 50px;
+    text-align: center;
+    color: #fff;
+}
+
+#myFooterTwo a {
+    color: #d2d1d1;
+    text-decoration: none;
+}
+
+#myFooterTwo a:hover,
+#myFooterTwo a:focus {
+    text-decoration: none;
+    color: white;
+}
+
+#myFooterTwo .social-networks {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 16px;
+}
+
+#myFooterTwo .social-networks a {
+    font-size: 32px;
+    color: #f9f9f9;
+    padding: 10px;
+    transition: 0.2s;
+}
+
+#myFooterTwo .social-networks a:hover {
+    text-decoration: none;
+}
+
+#myFooterTwo .facebook:hover {
+    color: #0077e2;
+}
+
+#myFooterTwo .google:hover {
+    color: #ef1a1a;
+}
+
+#myFooterTwo .twitter:hover {
+    color: #00aced;
+}
+
+#myFooterTwo .btn {
+    color: white;
+    background-color: #d84b6b;
+    border-radius: 20px;
+    border: none;
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    line-height: 25px;
+}
+
+@media screen and (max-width: 767px) {
+    #myFooterTwo {
+        text-align: center;
+    }
+}
