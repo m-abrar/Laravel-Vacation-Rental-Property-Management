@@ -7,6 +7,7 @@ use App\Http\Controllers\SendEmailsController as SendEmails;
 use App\Http\Controllers\NavigationController as Nav;
 use App\Http\Requests\FrontendReservations;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Settings;
 use App\Models\Sliders;

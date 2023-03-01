@@ -5,6 +5,17 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PagesFormRequest;
 use App\Http\Controllers\Admin\AdminController as Panel;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
+
+use App\Models\Settings;
+use App\Models\Sliders;
+use App\Models\Pages;
+use App\Models\Properties;
+use App\Models\Categories;
+use App\Models\ModelLocations;
+use App\Models\PageTypes;
+
 class PagesController extends Controller
 {
     //List of contents pages with actions for edit/delete/add
@@ -13,7 +24,7 @@ class PagesController extends Controller
 
 
         $settings      = Settings::find(1);
-        $user          = \Auth::user();
+        $user          = Auth::user();
         $notifications = $panel->notifications();
         $pages         = Pages::orderBy('display_order', 'asc')->get();
         $js            = "$('#treeview-website').addClass('active');\n";

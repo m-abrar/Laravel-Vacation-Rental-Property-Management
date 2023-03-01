@@ -4,6 +4,17 @@ use Mail;
 use Redirect;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
+
+use App\Models\Settings;
+use App\Models\Sliders;
+use App\Models\Pages;
+use App\Models\Properties;
+use App\Models\Categories;
+use App\Models\ModelLocations;
+use App\Models\PageTypes;
+
 class SendEmailsController extends Controller
 {
     //Call this function for sending email to property owner /admin when a buying offer is posted.

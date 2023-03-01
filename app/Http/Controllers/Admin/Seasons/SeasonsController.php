@@ -5,15 +5,27 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SeasonsFormRequest;
 use App\Http\Controllers\Admin\AdminController as Panel;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
+// use Auth;
+
+use App\Models\Settings;
+use App\Models\Sliders;
+use App\Models\Pages;
+use App\Models\Properties;
+use App\Models\ModelLocations;
+use App\Models\PropertiesRates;
+use App\Models\Seasons;
+
 class SeasonsController extends Controller
 {
     //List of seasons with add/edit/delete actions
     public function index(Panel $panel)
     {
-        $settings      = \App\Settings::find(1);
-        $user          = \Auth::user();
+        $settings      = Settings::find(1);
+        $user          = Auth::user();
         $notifications = $panel->notifications();
-        $season        = \App\Seasons::orderBy('display_order', 'asc')->get();
+        $season        = Seasons::orderBy('display_order', 'asc')->get();
         $js            = "$('#treeview-properties').addClass('active');\n";
         return view('admin.seasons.index')->with('settings', $settings)->with('user', $user)->with('notifications', $notifications)->with('seasons', $season)->with('js', $js);
     }
@@ -25,7 +37,7 @@ class SeasonsController extends Controller
     //Inserts into database
     public function store(SeasonsFormRequest $request)
     {
-        $season                     = new \App\Seasons();
+        $season                     = new Seasons();
         $season->title              = $request->get('title');
         $season->season_start_month = $request->get('season_start_month');
         $season->season_start_day   = $request->get('season_start_day');
@@ -41,7 +53,7 @@ class SeasonsController extends Controller
     //Edit form
     public function edit($id)
     {
-        $season = \App\Seasons::where('id', $id)->first();
+        $season = Seasons::where('id', $id)->first();
         return view('admin.seasons.edit')->with('season', $season);
     }
     //Update the database table
@@ -49,7 +61,7 @@ class SeasonsController extends Controller
     {
         //
         $id                         = $request->input('id');
-        $season                     = \App\Seasons::find($id);
+        $season                     = Seasons::find($id);
         $season->title              = $request->get('title');
         $season->season_start_month = $request->get('season_start_month');
         $season->season_start_day   = $request->get('season_start_day');
@@ -65,7 +77,7 @@ class SeasonsController extends Controller
     //Delete
     public function destroy(Request $request, $id)
     {
-        $season = \App\Seasons::find($id);
+        $season = Seasons::find($id);
         $season->delete();
         $data['message'] = 'Successfully deleted';
         return redirect('/admin/seasons')->with($data);

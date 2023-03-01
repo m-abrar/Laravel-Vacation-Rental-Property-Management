@@ -5,13 +5,23 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserFormRequest;
 use App\Http\Controllers\Admin\AdminController as Panel;
 use Illuminate\Http\Request;
+
+use App\Models\Settings;
+use App\Models\Sliders;
+use App\Models\Pages;
+use App\Models\Properties;
+use App\Models\ModelLocations;
+use App\Models\PropertiesRates;
+use App\Models\Calendar;
+use App\Models\EmailTemplates;
+
 class UserController extends Controller
 {
     //Edit form
     public function edit(Panel $panel)
     {
         //load edit form right on index.
-        $settings      = \App\Settings::find(1);
+        $settings      = Settings::find(1);
         $user          = \Auth::user();
         $notifications = $panel->notifications();
         $js            = "$('#treeview-settings').addClass('active');\n";
@@ -26,7 +36,7 @@ class UserController extends Controller
 
         $notifications = $panel->notifications();
         
-        $user              = \App\User::find($id);
+        $user              = User::find($id);
         $user->firstname   = $request->input('firstname');
         $user->lastname    = $request->input('lastname');
         $user->designation = $request->input('designation');

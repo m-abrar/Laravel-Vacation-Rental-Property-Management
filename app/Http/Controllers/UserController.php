@@ -5,6 +5,15 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Posts;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use App\Models\Settings;
+use App\Models\Sliders;
+use App\Models\Pages;
+use App\Models\Properties;
+use App\Models\Categories;
+use App\Models\ModelLocations;
+use App\Models\PageTypes;
 class UserController extends Controller
 {
     public function user_posts($id)

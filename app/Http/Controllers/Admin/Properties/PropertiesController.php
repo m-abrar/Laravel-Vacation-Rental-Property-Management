@@ -5,16 +5,26 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PropertiesFormRequest;
 use App\Http\Controllers\Admin\AdminController as Panel;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 use App\Models\Settings;
-use App\Models\Sliders;
-use App\Models\Pages;
+use App\Models\Seasons;
+use App\Models\Features;
 use App\Models\Properties;
-use App\Models\Categories;
+use App\Models\PropertyTypes;
+use App\Models\PropertyClasses;
+use App\Models\PropertiesClasses;
 use App\Models\ModelLocations;
-use App\Models\PageTypes;
-
+use App\Models\Facilitators;
+use App\Models\User;
+use App\Models\Amenities;
+use App\Models\LineItems;
+use App\Models\PropertiesImages;
+use App\Models\PropertiesRates;
+use App\Models\PropertiesAmenities;
+use App\Models\PropertiesFeatures;
+use App\Models\PropertiesLineItems;
 
 class PropertiesController extends Controller
 {
@@ -22,7 +32,7 @@ class PropertiesController extends Controller
     public function index(Panel $panel)
     {
         $settings      = Settings::find(1);
-        $user          = \Auth::user();
+        $user          = Auth::user();
         $notifications = $panel->notifications();
         $properties    = Properties::orderBy('display_order', 'asc')->get();
         $js            = "$('#treeview-properties').addClass('active');\n";
@@ -55,7 +65,7 @@ class PropertiesController extends Controller
     {
         $property        = new Properties();
         $property->title = $request->input('title');
-        $property->slug  = $slug = str_slug($request->input('slug')?$request->input('slug'):$property->title);
+        $property->slug  = $slug = Str::str_slug($request->input('slug')?$request->input('slug'):$property->title);
         $property->code  = $code = $request->input('code');
         $duplicate       = Properties::where('slug', $slug)->first();
         if ($duplicate)
@@ -379,7 +389,7 @@ class PropertiesController extends Controller
         $id              = $request->input('id');
         $property        = Properties::find($id);
         $property->title = $request->input('title');
-        $property->slug  = $slug = str_slug($property->title);
+        $property->slug  = $slug = Str::str_slug($property->title);
         $property->code  = $code = $request->input('code');
         $duplicate       = Properties::where('slug', $slug)->where('id', '!=', $id)->first();
         if ($duplicate)

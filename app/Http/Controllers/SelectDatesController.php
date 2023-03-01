@@ -4,6 +4,7 @@ use Redirect;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\NavigationController as Nav;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Settings;
 use App\Models\Sliders;

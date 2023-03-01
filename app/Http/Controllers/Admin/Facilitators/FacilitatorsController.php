@@ -5,16 +5,28 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\FacilitatorsFormRequest;
 use App\Http\Controllers\Admin\AdminController as Panel;
 use Illuminate\Http\Request;
+
+use App\Models\Settings;
+use App\Models\Sliders;
+use App\Models\Pages;
+use App\Models\Properties;
+use App\Models\ModelLocations;
+use App\Models\PropertiesRates;
+use App\Models\Facilitators;
+use Illuminate\Support\Facades\Auth;
+
+
+
 class FacilitatorsController extends Controller
 {
     //List of Housekeepers/Vendors with add/delete/update actions
     public function index(Panel $panel)
     {
-        $settings                 = \App\Settings::find(1);
-        $user                     = \Auth::user();
+        $settings                 = Settings::find(1);
+        $user                     = Auth::user();
         $notifications            = $panel->notifications();
-        $facilitators_housekeeper = \App\Facilitators::where('role', 'housekeeper')->orderBy('firstname', 'asc')->get();
-        $facilitators_vendor      = \App\Facilitators::where('role', 'vendor')->orderBy('firstname', 'asc')->get();
+        $facilitators_housekeeper = Facilitators::where('role', 'housekeeper')->orderBy('firstname', 'asc')->get();
+        $facilitators_vendor      = Facilitators::where('role', 'vendor')->orderBy('firstname', 'asc')->get();
         $js                       = "$('#treeview-people').addClass('active');\n";
         return view('admin.facilitators.index')->with('settings', $settings)->with('user', $user)->with('notifications', $notifications)->with('facilitators_housekeeper', $facilitators_housekeeper)->with('facilitators_vendor', $facilitators_vendor)->with('js', $js);
     }
@@ -26,7 +38,7 @@ class FacilitatorsController extends Controller
     //Inserts into database table
     public function store(FacilitatorsFormRequest $request)
     {
-        $facilitator                 = new \App\Facilitators();
+        $facilitator                 = new Facilitators();
         $facilitator->role           = $request->get('role');
         $facilitator->firstname      = $request->get('firstname');
         $facilitator->lastname       = $request->get('lastname');
@@ -61,14 +73,14 @@ class FacilitatorsController extends Controller
     //Edit form
     public function edit($id)
     {
-        $facilitator = \App\Facilitators::where('id', $id)->first();
+        $facilitator = Facilitators::where('id', $id)->first();
         return view('admin.facilitators.edit')->with('facilitator', $facilitator);
     }
     //Update form
     public function update(FacilitatorsFormRequest $request)
     {
         $id                          = $request->input('id');
-        $facilitator                 = \App\Facilitators::find($id);
+        $facilitator                 = Facilitators::find($id);
         $facilitator->role           = $request->get('role');
         $facilitator->firstname      = $request->get('firstname');
         $facilitator->lastname       = $request->get('lastname');
@@ -103,7 +115,7 @@ class FacilitatorsController extends Controller
     //Delete
     public function destroy(Request $request, $id)
     {
-        $facilitator = \App\Facilitators::find($id);
+        $facilitator = Facilitators::find($id);
         $facilitator->delete();
         $data['message'] = 'Successfully deleted';
         return redirect('/admin/facilitators')->with($data);

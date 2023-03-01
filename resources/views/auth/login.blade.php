@@ -42,8 +42,8 @@
           <strong>Login:</strong> owner@noble-soft.com<br/>
           <strong>Pass:</strong> demo<br/>
         </div>
-
-        <form action="{{ url('/auth/login') }}" method="post">
+        
+        <form method="POST" action="{{ route('login') }}">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <div class="form-group has-feedback">
             <input type="email" name="email" class="form-control" placeholder="Email"/>

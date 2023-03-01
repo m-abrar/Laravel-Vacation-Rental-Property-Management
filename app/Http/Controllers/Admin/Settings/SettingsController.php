@@ -5,16 +5,29 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SettingsFormRequest;
 use App\Http\Controllers\Admin\AdminController as Panel;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
+// use Auth;
+
+use App\Models\Settings;
+use App\Models\Sliders;
+use App\Models\Pages;
+use App\Models\Properties;
+use App\Models\ModelLocations;
+use App\Models\PropertiesRates;
+use App\Models\Calendar;
+
+
 class SettingsController extends Controller
 {
     //Form for updating settings
     public function edit(Panel $panel)
     {
         //load edit form right on index.
-        $settings      = \App\Settings::find(1);
-        $user          = \Auth::user();
+        $settings      = Settings::find(1);
+        $user          = Auth::user();
         $notifications = $panel->notifications();
-        $setting       = \App\Settings::where('id', 1)->first();
+        $setting       = Settings::where('id', 1)->first();
         $js            = "$('#treeview-settings').addClass('active');\n";
         return view('admin.settings.edit')->with('settings', $settings)->with('user', $user)->with('notifications', $notifications)->with('setting', $setting)->with('js', $js);
     }
@@ -22,7 +35,7 @@ class SettingsController extends Controller
     public function update(SettingsFormRequest $request)
     {
         $id                           = $request->input('id');
-        $setting                      = \App\Settings::find($id);
+        $setting                      = Settings::find($id);
         $setting->site_title          = $request->input('site_title');
         $setting->site_address_line_1 = $request->input('site_address_line_1');
         $setting->site_address_line_2 = $request->input('site_address_line_2');

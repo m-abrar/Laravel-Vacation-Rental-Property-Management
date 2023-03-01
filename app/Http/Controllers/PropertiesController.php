@@ -8,7 +8,7 @@ use App\Http\Controllers\NavigationController as Nav;
 use App\Http\Controllers\Admin\Locations\LocationsController as Locations;
 use App\Http\Requests\FrontendPropertiesSearch;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Settings;
 use App\Models\Pages;

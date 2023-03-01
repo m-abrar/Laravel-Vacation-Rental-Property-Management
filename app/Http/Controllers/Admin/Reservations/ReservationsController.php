@@ -7,13 +7,32 @@ use App\Http\Controllers\Admin\AdminController as Panel;
 use App\Http\Controllers\SendEmailsController as SendEmails;
 use App\Http\Requests\ReservationsFormRequest;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
+// use Auth;
+
+use App\Models\Settings;
+use App\Models\Sliders;
+use App\Models\Pages;
+use App\Models\Properties;
+use App\Models\ModelLocations;
+use App\Models\Reservations;
+use App\Models\Calendar;
+use App\Models\Services;
+use App\Models\LineItems;
+use App\Models\PropertiesLineItems;
+use App\Models\Facilitators;
+use App\Models\ReservationLineItems;
+use App\Models\Transactions;
+
+
 class ReservationsController extends Controller
 {
     //List of Reservations/Guests with actions to update/delete/add-new
     public function index(Panel $panel)
     {
         $settings             = Settings::find(1);
-        $user                 = \Auth::user();
+        $user                 = Auth::user();
         $notifications        = $panel->notifications();
         $reservations_all     = Reservations::all();
         $reservations_new     = Reservations::where('date_start', '>=', date('Y-m-d'))->where('is_seen', '0')->get();
@@ -67,7 +86,7 @@ class ReservationsController extends Controller
             return redirect('admin/reservations/search/' . $search_start . '/' . $search_end);
         } //@$request->input('search_dates')
         $settings      = Settings::find(1);
-        $user          = \Auth::user();
+        $user          = Auth::user();
         $notifications = $panel->notifications();
         if (!empty($date_start) and !empty($date_end)) {
             $date_start   = date('Y-m-d', strtotime($date_start));
@@ -99,7 +118,7 @@ class ReservationsController extends Controller
         $propertyResult = Properties::where('slug', $property)->first();
         $property_id    = $propertyResult->id;
         $reservation_id = time();
-        $states         = Locations::where('type', 'state')->where('is_active', '1')->orderBy('display_order', 'asc')->get();
+        $states         = ModelLocations::where('type', 'state')->where('is_active', '1')->orderBy('display_order', 'asc')->get();
         $addons         = Services::where('is_active', 1)->orderBy('display_order', 'asc')->get();
         $lineitemsdefault    = LineItems::where('is_active', 1)->orderBy('display_order', 'asc')->get();
         $lineitems          = array();
@@ -161,7 +180,7 @@ class ReservationsController extends Controller
     public function show(Panel $panel, $id)
     {
         $settings              = Settings::find(1);
-        $user                  = \Auth::user();
+        $user                  = Auth::user();
         $notifications         = $panel->notifications();
         $reservation           = Reservations::where('id', $id)->first();
         $pre_select_date_start = $reservation->date_start;
@@ -170,7 +189,7 @@ class ReservationsController extends Controller
         $property_id           = $propertyResult->id;
         $property_slug         = $propertyResult->slug;
         $reservation_id        = $id;
-        $states                = Locations::where('type', 'state')->where('is_active', '1')->get();
+        $states                = ModelLocations::where('type', 'state')->where('is_active', '1')->get();
         $addons                = Services::where('is_active', 1)->orderBy('display_order', 'asc')->get();
         $lineitems             = LineItems::where('is_active', '1')->orderBy('display_order', 'asc')->get();
         $lineitems_final       = array();
@@ -212,7 +231,7 @@ class ReservationsController extends Controller
         $property_id           = $propertyResult->id;
         $property_slug         = $propertyResult->slug;
         $reservation_id        = $id;
-        $states                = Locations::where('type', 'state')->where('is_active', '1')->orderBy('display_order', 'asc')->get();
+        $states                = ModelLocations::where('type', 'state')->where('is_active', '1')->orderBy('display_order', 'asc')->get();
         $addons                = Services::where('is_active', 1)->orderBy('display_order', 'asc')->get();
         $lineitems             = LineItems::where('is_active', '1')->orderBy('display_order', 'asc')->get();
         $lineitems_final       = array();

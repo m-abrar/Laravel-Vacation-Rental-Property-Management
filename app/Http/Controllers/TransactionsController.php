@@ -5,6 +5,16 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\SendEmailsController as SendEmails;
 use App\Http\Controllers\NavigationController as Nav;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use App\Models\Settings;
+use App\Models\Sliders;
+use App\Models\Pages;
+use App\Models\Properties;
+use App\Models\Categories;
+use App\Models\ModelLocations;
+use App\Models\PageTypes;
+
 class TransactionsController extends Controller
 {
     // This function updates the status of a pending payment to paid followed by processing a successful credit card charge.

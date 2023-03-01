@@ -5,15 +5,27 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ServicesFormRequest;
 use App\Http\Controllers\Admin\AdminController as Panel;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
+// use Auth;
+
+use App\Models\Settings;
+use App\Models\Services;
+use App\Models\Pages;
+use App\Models\Properties;
+use App\Models\ModelLocations;
+use App\Models\PropertiesRates;
+use App\Models\Calendar;
+
 class ServicesController extends Controller
 {
     //List of addon/services with actions to edit/delete
     public function index(Panel $panel)
     {
-        $settings      = \App\Settings::find(1);
-        $user          = \Auth::user();
+        $settings      = Settings::find(1);
+        $user          = Auth::user();
         $notifications = $panel->notifications();
-        $services = \App\Services::orderBy('display_order', 'asc')->get();
+        $services = Services::orderBy('display_order', 'asc')->get();
         $js            = "$('#treeview-properties').addClass('active');\n";
         return view('admin.services.index')->with('settings', $settings)->with('user', $user)->with('notifications', $notifications)->with('services', $services)->with('js', $js);
     }
@@ -25,7 +37,7 @@ class ServicesController extends Controller
     //Inserts a new record into database
     public function store(ServicesFormRequest $request)
     {
-        $service            = new \App\Services();
+        $service            = new Services();
         $service->title     = $request->get('title');
         $service->summary     = $request->get('summary');
         $service->description     = $request->get('description');
@@ -48,14 +60,14 @@ class ServicesController extends Controller
     //Edit form for a specific database row
     public function edit($id)
     {
-        $service = \App\Services::where('id', $id)->first();
+        $service = Services::where('id', $id)->first();
         return view('admin.services.edit')->with('service', $service);
     }
     //Update the specified row of the services table.
     public function update(ServicesFormRequest $request)
     {
         $id                   = $request->input('id');
-        $service        = \App\Services::find($id);
+        $service        = Services::find($id);
         $service->title = $request->input('title');
         $service->summary     = $request->get('summary');
         $service->description     = $request->get('description');
@@ -79,7 +91,7 @@ class ServicesController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        $service = \App\Services::find($id);
+        $service = Services::find($id);
         $service->delete();
         $data['message'] = 'Successfully deleted';
         return redirect('/admin/services')->with($data);

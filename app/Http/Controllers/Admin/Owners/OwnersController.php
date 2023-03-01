@@ -5,15 +5,25 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\OwnersFormRequest;
 use App\Http\Controllers\Admin\AdminController as Panel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use App\Models\Settings;
+use App\Models\Sliders;
+use App\Models\Pages;
+use App\Models\Properties;
+use App\Models\Categories;
+use App\Models\ModelLocations;
+use App\Models\Owners;
+
 class OwnersController extends Controller
 {
     //List of entries in the table
     public function index(Panel $panel)
     {
-        $settings      = \App\Settings::find(1);
-        $user          = \Auth::user();
+        $settings      = Settings::find(1);
+        $user          = Auth::user();
         $notifications = $panel->notifications();
-        $owners        = \App\Owners::where('role', 'owner')->get();
+        $owners        = Owners::where('role', 'owner')->get();
         $js            = "$('#treeview-people').addClass('active');\n";
         return view('admin.owners.index')->with('settings', $settings)->with('user', $user)->with('notifications', $notifications)->with('owners', $owners)->with('js', $js);
     }
@@ -25,7 +35,7 @@ class OwnersController extends Controller
     //Insert
     public function store(OwnersFormRequest $request)
     {
-        $owner                 = new \App\Owners();
+        $owner                 = new Owners();
         $owner->firstname      = $request->get('firstname');
         $owner->lastname       = $request->get('lastname');
         $owner->address_line_1 = $request->get('address_line_1');
@@ -60,14 +70,14 @@ class OwnersController extends Controller
     //Edit form
     public function edit($id)
     {
-        $owner = \App\Owners::where('id', $id)->first();
+        $owner = Owners::where('id', $id)->first();
         return view('admin.owners.edit')->with('owner', $owner);
     }
     //Update table
     public function update(OwnersFormRequest $request)
     {
         $id                    = $request->input('id');
-        $owner                 = \App\Owners::find($id);
+        $owner                 = Owners::find($id);
         $owner->firstname      = $request->get('firstname');
         $owner->lastname       = $request->get('lastname');
         $owner->address_line_1 = $request->get('address_line_1');
@@ -105,7 +115,7 @@ class OwnersController extends Controller
     //Deletes a row
     public function destroy(Request $request, $id)
     {
-        $owner = \App\Owners::find($id);
+        $owner = Owners::find($id);
         $owner->delete();
         $data['message'] = 'Successfully deleted';
         return redirect('/admin/owners')->with($data);

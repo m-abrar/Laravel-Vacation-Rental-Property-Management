@@ -4,9 +4,17 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Models\Navigation;
-use App\Models\PageTypes;
 
+use Illuminate\Support\Facades\Auth;
+
+use App\Models\Settings;
+use App\Models\Navigation;
+use App\Models\Sliders;
+use App\Models\Pages;
+use App\Models\Properties;
+use App\Models\Categories;
+use App\Models\ModelLocations;
+use App\Models\PageTypes;
 
 class NavigationController extends Controller
 {

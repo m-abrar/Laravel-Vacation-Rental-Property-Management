@@ -5,14 +5,24 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LineItemsFormRequest;
 use App\Http\Controllers\Admin\AdminController as Panel;
 use Illuminate\Http\Request;
+
+use App\Models\Settings;
+use App\Models\LineItems;
+use App\Models\Pages;
+use App\Models\Properties;
+use App\Models\ModelLocations;
+use App\Models\PropertiesRates;
+use App\Models\Calendar;
+use Illuminate\Support\Facades\Auth;
+
 class LineItemsController extends Controller
 {
     //List of records
     public function index(Panel $panel)
     {
-        $lineitems     = \App\LineItems::orderBy('display_order', 'asc')->get();
-        $settings      = \App\Settings::find(1);
-        $user          = \Auth::user();
+        $lineitems     = LineItems::orderBy('display_order', 'asc')->get();
+        $settings      = Settings::find(1);
+        $user          = Auth::user();
         $notifications = $panel->notifications();
         $js            = "$('#treeview-properties').addClass('active');\n";
         return view('admin.line-items.index')->with('settings', $settings)->with('user', $user)->with('notifications', $notifications)->with('lineitems', $lineitems)->with('js', $js);
@@ -25,11 +35,11 @@ class LineItemsController extends Controller
     //Inserts
     public function store(LineItemsFormRequest $request)
     {
-        $lineitem        = new \App\LineItems();
+        $lineitem        = new LineItems();
         $lineitem->title = $request->get('title');
         $lineitem->save();
         $lineitem->slug = $slug = str_slug($lineitem->title . '_' . $lineitem->id, $separator = '_');
-        $duplicate      = \App\LineItems::where('slug', $slug)->first();
+        $duplicate      = LineItems::where('slug', $slug)->first();
         if ($duplicate) {
             return redirect('/admin/line-items/create')->withErrors('Title or slug already exists.')->withInput();
         } //$duplicate
@@ -57,17 +67,17 @@ class LineItemsController extends Controller
     //Edit form
     public function edit($id)
     {
-        $lineitem = \App\LineItems::where('id', $id)->first();
+        $lineitem = LineItems::where('id', $id)->first();
         return view('admin.line-items.edit')->with('lineitem', $lineitem);
     }
     //Update the database
     public function update(LineItemsFormRequest $request)
     {
         $id              = $request->input('id');
-        $lineitem        = \App\LineItems::find($id);
+        $lineitem        = LineItems::find($id);
         $lineitem->title = $request->get('title');
         $lineitem->slug  = $slug = str_slug($lineitem->title . '_' . $id, $separator = '_');
-        $duplicate       = \App\LineItems::where('slug', $slug)->where('id', '!=', $id)->first();
+        $duplicate       = LineItems::where('slug', $slug)->where('id', '!=', $id)->first();
         if ($duplicate) {
             return redirect('/admin/line-items/edit/' . $id)->withErrors('Title or slug already exists.')->withInput();
         } //$duplicate
@@ -95,7 +105,7 @@ class LineItemsController extends Controller
     //Delete
     public function destroy(Request $request, $id)
     {
-        $lineitem = \App\LineItems::find($id);
+        $lineitem = LineItems::find($id);
         $lineitem->delete();
         $data['message'] = 'Successfully deleted';
         return redirect('/admin/line-items')->with($data);

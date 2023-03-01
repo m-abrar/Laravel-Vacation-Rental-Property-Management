@@ -6,14 +6,16 @@ use App\Http\Requests\PropertyTypesFormRequest;
 use App\Http\Controllers\Admin\AdminController as Panel;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+// use Auth;
+
 use App\Models\Settings;
 use App\Models\Sliders;
 use App\Models\Pages;
 use App\Models\Properties;
-use App\Models\Categories;
 use App\Models\ModelLocations;
-use App\Models\PageTypes;
-
+use App\Models\PropertyTypes;
+use App\Models\ModelCalendar;
 
 class PropertyTypesController extends Controller
 {
@@ -27,7 +29,7 @@ class PropertyTypesController extends Controller
     public function index(Panel $panel)
     {
         $settings      = Settings::find(1);
-        $user          = \Auth::user();
+        $user          = Auth::user();
         $notifications = $panel->notifications();
         $propertytypes = PropertyTypes::orderBy('display_order', 'asc')->get();
         $js            = "$('#treeview-properties').addClass('active');\n";

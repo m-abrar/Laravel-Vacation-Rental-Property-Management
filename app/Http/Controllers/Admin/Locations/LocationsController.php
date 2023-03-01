@@ -13,12 +13,13 @@ use App\Models\Properties;
 use App\Models\ModelLocations;
 use App\Models\PropertiesRates;
 use App\Models\Calendar;
+use Illuminate\Support\Facades\Auth;
 
 
 class LocationsController extends Controller
 {
     public function getLocationID($slug){
-        $location    = Locations::where('slug', $slug)->first();
+        $location    = ModelLocations::where('slug', $slug)->first();
         return $location->id;
     }
 
@@ -27,7 +28,7 @@ class LocationsController extends Controller
     public function index(Panel $panel)
     {
         $settings      = Settings::find(1);
-        $user          = \Auth::user();
+        $user          = Auth::user();
         $notifications = $panel->notifications();
         $locations     = ModelLocations::orderBy('display_order', 'asc')->get();
         $js            = "$('#treeview-properties').addClass('active');\n";

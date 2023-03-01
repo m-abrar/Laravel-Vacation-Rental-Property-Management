@@ -12,6 +12,7 @@ use Redirect;
 use App\Http\Controllers\SendEmailsController as SendEmails;
 use App\Http\Controllers\NavigationController as Nav;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Settings;
 use App\Models\Sliders;
@@ -20,17 +21,6 @@ use App\Models\Properties;
 use App\Models\Categories;
 use App\Models\ModelLocations;
 use App\Models\PageTypes;
-
-// use Illuminate\Support\Facades\Crypt;
-// use App\Models\Apartment;
-// use App\Models\Admin\ApartmentType;
-// use App\Models\FeesIncentives;
-// use App\Models\LivingInformation;
-// use App\Models\Fee;
-// use App\Models\Admin\Company;
-// use Spatie\Permission\Models\Role;
-// use Illuminate\Support\Facades\Auth;
-
 
 
 class PagesController extends Controller

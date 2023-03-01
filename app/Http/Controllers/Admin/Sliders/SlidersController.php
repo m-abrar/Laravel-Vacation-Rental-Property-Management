@@ -5,15 +5,27 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SlidersFormRequest;
 use App\Http\Controllers\Admin\AdminController as Panel;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
+// use Auth;
+
+use App\Models\Settings;
+use App\Models\Sliders;
+use App\Models\Pages;
+use App\Models\Properties;
+use App\Models\ModelLocations;
+use App\Models\PropertiesRates;
+use App\Models\Calendar;
+
 class SlidersController extends Controller
 {
     // List of sliders
     public function index(Panel $panel)
     {
-        $settings      = \App\Settings::find(1);
-        $user          = \Auth::user();
+        $settings      = Settings::find(1);
+        $user          = Auth::user();
         $notifications = $panel->notifications();
-        $sliders       = \App\Sliders::orderBy('display_order', 'asc')->get();
+        $sliders       = Sliders::orderBy('display_order', 'asc')->get();
         $js            = "$('#treeview-website').addClass('active');\n";
         return view('admin.sliders.index')->with('settings', $settings)->with('user', $user)->with('notifications', $notifications)->with('sliders', $sliders)->with('js', $js);
     }
@@ -25,7 +37,7 @@ class SlidersController extends Controller
     //Inserts
     public function store(SlidersFormRequest $request)
     {
-        $slider            = new \App\Sliders();
+        $slider            = new Sliders();
         $slider->title     = $request->get('title');
         $slider->is_active = $request->has('is_active') ? 1 : 0;
         $slider->save();
@@ -44,7 +56,7 @@ class SlidersController extends Controller
     //Edit form
     public function edit($id)
     {
-        $slider = \App\Sliders::where('id', $id)->first();
+        $slider = Sliders::where('id', $id)->first();
         return view('admin.sliders.edit')->with('slider', $slider);
     }
     //Update the database
@@ -53,7 +65,7 @@ class SlidersController extends Controller
         
         //
         $id            = $request->input('id');
-        $slider        = \App\Sliders::find($id);
+        $slider        = Sliders::find($id);
         $slider->title = $request->input('title');
         $slider->is_active = $request->has('is_active') ? 1 : 0;
         $slider->save();
@@ -74,7 +86,7 @@ class SlidersController extends Controller
     //Deletes a slider
     public function destroy(Request $request, $id)
     {
-        $slider = \App\Sliders::find($id);
+        $slider = Sliders::find($id);
         $slider->delete();
         $data['message'] = 'Successfully deleted';
         return redirect('/admin/sliders')->with($data);

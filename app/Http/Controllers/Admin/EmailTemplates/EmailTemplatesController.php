@@ -5,22 +5,34 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\EmailTemplatesFormRequest;
 use App\Http\Controllers\Admin\AdminController as Panel;
 use Illuminate\Http\Request;
+use Auth;
+
+use App\Models\Settings;
+use App\Models\Sliders;
+use App\Models\Pages;
+use App\Models\Properties;
+use App\Models\ModelLocations;
+use App\Models\PropertiesRates;
+use App\Models\Calendar;
+use App\Models\EmailTemplates;
+
+
 class EmailTemplatesController extends Controller
 {
     //List of email templates available with edit action
     public function index(Panel $panel)
     {
-        $settings       = \App\Settings::find(1);
-        $user           = \Auth::user();
+        $settings       = Settings::find(1);
+        $user           = Auth::user();
         $notifications  = $panel->notifications();
-        $emailtemplates = \App\EmailTemplates::where('is_active', 1)->orderBy('display_order', 'asc')->get();
+        $emailtemplates = EmailTemplates::where('is_active', 1)->orderBy('display_order', 'asc')->get();
         $js             = "$('#treeview-settings').addClass('active');\n";
         return view('admin.email-templates.index')->with('settings', $settings)->with('user', $user)->with('notifications', $notifications)->with('emailtemplates', $emailtemplates)->with('js', $js);
     }
     //Shows edit form
     public function edit($id)
     {
-        $emailtemplate = \App\EmailTemplates::where('id', $id)->first();
+        $emailtemplate = EmailTemplates::where('id', $id)->first();
         //dd($emailtemplate);
         return view('admin.email-templates.edit')->with('emailtemplate', $emailtemplate);
     }
@@ -28,7 +40,7 @@ class EmailTemplatesController extends Controller
     public function update(EmailTemplatesFormRequest $request)
     {
         $id                           = $request->input('id');
-        $emailtemplate                = \App\EmailTemplates::find($id);
+        $emailtemplate                = EmailTemplates::find($id);
         $emailtemplate->email_subject = $request->input('email_subject');
         $emailtemplate->email_body    = $request->input('email_body');
         @$message .= 'Successfully saved<br/>';
